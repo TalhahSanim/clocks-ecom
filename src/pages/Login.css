@@ -1,0 +1,53 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-label {
+  font-size: 2.5rem;
+  padding: 20px;
+  display: none;
+  border-radius: 3rem;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 20px;
+  background: #c8f0e3;
+  border: none;
+  border-radius: 0.3rem;
+  width: 100%;
+  border-bottom: 4px solid rgb(56, 182, 149);
+}
+
+input:focus {
+  outline: 5px solid rgb(45, 172, 163);
+}
+
+button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1.5rem 3rem;
+  background: rgba(110, 227, 192, 0.68);
+  color: #fff;
+  font-size: inherit;
+  font-weight: 100;
+  border: none;
+  border-radius: 1.2rem;
+  cursor: pointer;
+}
+.login-page .loginTitle {
+  color: #fff;
+  letter-spacing: 1.1rem;
+  padding: 2rem;
+  border-bottom: 3px solid rgb(162, 255, 162);
+}
+
+#signup-password,
+#signup-email {
+  text-align: center;
+  font-family: inherit;
+  font-size: inherit;
+  color: rgb(17, 104, 104);
+}
