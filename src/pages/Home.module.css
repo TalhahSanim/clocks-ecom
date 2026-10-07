@@ -1,0 +1,23 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading,
+.quote {
+  color: white;
+  text-align: center;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1.2rem;
+  background-color: rgb(49, 188, 153);
+  color: rgb(173, 251, 230);
+  font-weight: bolder;
+  text-decoration: none;
+  border-radius: 0.3rem;
+}

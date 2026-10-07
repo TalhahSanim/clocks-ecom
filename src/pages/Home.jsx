@@ -1,37 +1,17 @@
 import { Link } from "react-router-dom";
+import styles from "./Home.module.css";
 
 const Home = () => {
   return (
     <>
       <title>Welcome to Parralel Store</title>
       <section>
-        <div
-          className="page"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <h2 style={{ color: "white", textAlign: "center" }}>
-            Pure style, zero effort
-          </h2>
-          <blockquote style={{ color: "white", textAlign: "center" }}>
-            Discover premium daily wear made to move with you.
-          </blockquote>
-          <Link
-            style={{
-              backgroundColor: "rgb(49, 188, 153)",
-              padding: "1.2rem",
-              display: "inline-block",
-              borderRadius: "0.3rem",
-              textDecoration: "none",
-              marginTop: "2rem",
-              color: "rgb(173, 251, 230)",
-              fontWeight: "bolder",
-            }}
-          >
+        <div className={styles.hero}>
+          <h2 className={styles.heading}>Pure style, zero effort</h2>
+          <p className={styles.quote}>
+            "Discover premium daily wear made to move with you."
+          </p>
+          <Link to="/products" className={styles.cta}>
             Browse Now
           </Link>
         </div>

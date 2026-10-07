@@ -1,18 +1,8 @@
 import { seedProducts } from "../api/products";
-
+import styles from "./AddProductButton.module.css";
 function AddProductButton() {
   return (
-    <button
-      onClick={() => seedProducts()}
-      style={{
-        padding: "22px",
-        backgroundColor: "rgb(51, 177, 164)",
-        boxShadow: "2px 2px 2px rgb(170, 201, 204)",
-        marginBottom: "5px",
-        border: "none",
-        borderRadius: "5px",
-      }}
-    >
+    <button className={styles.button} onClick={() => seedProducts()}>
       Seed DataBase
     </button>
   );

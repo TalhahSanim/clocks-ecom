@@ -1,0 +1,11 @@
+.title {
+  width: 66rem;
+  font-size: 4rem;
+  padding: 4rem;
+  margin: 0 auto;
+}
+
+.intro {
+  font-size: 2rem;
+  color: rgb(154, 250, 255);
+}
