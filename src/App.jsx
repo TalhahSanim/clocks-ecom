@@ -12,49 +12,23 @@ import ProductsPage from "./pages/ProductsPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
-import "./App.css";
+import styles from "./App.module.css";
 
 function AuthStatus() {
   const { isLoggedIn, user, logout, isLoading } = useAuth();
 
   if (isLoading) {
-    return (
-      <h3 style={{ fontWeight: "bold", color: "#007" }}>
-        Checking Login Status...
-      </h3>
-    );
+    return <h3 className={styles.loading}>Checking Login Status...</h3>;
   }
 
   if (!isLoggedIn) {
-    return (
-      <span className="authStatus" style={{ color: "red" }}>
-        You are not Logged In!
-      </span>
-    );
+    return <span className={styles.authStatus}>You are not Logged In!</span>;
   }
 
   return (
     <>
-      <h3
-        className="authStatus"
-        style={{ color: "white", fontWeight: "lighter", fontSize: "3rem" }}
-      >
-        Welcome, {user.name}
-      </h3>
-      <button
-        style={{
-          display: "block",
-          padding: "20px",
-          border: "none",
-          backgroundColor: "rgb(63, 137, 115)",
-          color: "white",
-          textAlign: "right",
-          borderRadius: "8px",
-          cursor: "pointer",
-          fontWeight: "600",
-        }}
-        onClick={logout}
-      >
+      <h3 className={styles.authStatus}>Welcome, {user.name}</h3>
+      <button onClick={logout} className={styles.logoutButton}>
         Logout
       </button>
     </>
@@ -71,9 +45,9 @@ function App() {
     // setCart((prevCartProducts)=> [...prevCartProducts, product])
   }
   return (
-    <div className="cont">
+    <div>
       <AuthProvider>
-        <div className="navBar">
+        <div className={styles.navBar}>
           <Nav cartCount={cart} />
           <AuthStatus />
         </div>

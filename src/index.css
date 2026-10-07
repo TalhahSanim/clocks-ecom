@@ -1,33 +1,11 @@
 /* index.css */
-@import url("https://googleapis.com");
+@import url("https://fonts.googleapis.com/css2?family=Scope+One&display=swap");
 
-body {
-  font-family: "Scope Sans", sans-serif;
-}
 :root {
   --text: #393a54;
   --text-h: #08060d;
-  /* --bg: linear-gradient(to right, #175a45, #abc); */
   --bg: rgb(39, 141, 147);
-  --code-bg: #8f8b6f;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.8) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  /* linear-gradient(
-      180deg,
-      rgba(213, 247, 232, 1) 0%,
-      rgb(39, 141, 147) 70%
-    ); */
-  --sans: "Scope Sans";
-  /* --heading: system-ui, "Segoe UI", Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace; */
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
@@ -46,45 +24,18 @@ body {
     --text: #7fa8ef;
     --text-h: #f3f4f6;
     background: rgb(39, 141, 147);
-
-    /* --bg: linear-gradient(to right, #60c1a7, #abc); */
-
-    /* --bg: linear-gradient(to right, #17215a, rgb(217, 233, 249)); */
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
   }
 }
 
 body {
   margin: 0;
   padding: 0;
+  font-family: "Scope One", sans-serif;
   background-color: rgb(157, 234, 214);
 }
 
-/* #root {
-  width: 80vw;
-  max-width: 100%;
-  margin: 10px auto;
-  text-align: center;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-} */
-
 h1,
 h2 {
-  font-family: var(--heading);
   font-weight: 500;
   color: var(--text-h);
 }
@@ -97,12 +48,4 @@ h1 {
     font-size: 36px;
     margin: 20px 0;
   }
-}
-
-code,
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
 }

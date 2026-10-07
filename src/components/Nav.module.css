@@ -12,6 +12,29 @@
   gap: 1.5rem;
   /* width: 86rem; */
   box-shadow: inset 2px 2px 4px 2px #5b968f;
+  margin-bottom: 2rem;
+}
+.navTitle {
+  color: #6fd4c8;
+  font-size: 6rem;
+  text-align: left;
+  margin: 8rem 0 10rem;
+  text-shadow: 4px 2px 2px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.loginIcon {
+  color: white;
+}
+.heroImage {
+  width: 200px;
+  border-radius: 20px;
+}
+
+.tagline {
+  text-align: right;
+  color: white;
+  font-style: italic;
 }
 
 .nav a {
@@ -33,4 +56,9 @@
 
 .navTitle {
   color: #6fd4c8;
+  font-size: 6rem;
+  text-align: left;
+  margin: 8rem 0 10rem;
+  text-shadow: 4px 2px 2px rgba(0, 0, 0, 0.5);
+  position: relative;
 }
