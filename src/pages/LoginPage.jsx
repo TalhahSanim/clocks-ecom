@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../api/auth";
 import { useAuth } from "../context/UseAuth";
-import "./Login.css";
+import form from "../styles/Form.module.css";
+import styles from "./Login.module.css";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +14,7 @@ function LoginPage() {
 
   async function handleSubmit(form) {
     form.preventDefault();
-    setErrorMessage();
+    setErrorMessage("");
     try {
       const user = await loginUser(email, password);
       login(user);
@@ -23,34 +24,18 @@ function LoginPage() {
     }
   }
   return (
-    <div className="login-page">
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          backgroundColor: "rgb(80, 176, 170)",
-          width: "200px",
-          height: "200px",
-          display: "flex",
-          flexDirection: "column",
-          margin: "0 150px",
-          justifyContent: "center",
-          alignItems: "center",
-          padding: "10rem",
-          borderRadius: "2rem",
-          boxShadow: " 0px 2px  8px  rgb(145, 255, 255)",
-        }}
-      >
-        <h1 className="loginTitle" style={{ fontWeight: "100" }}>
-          Login
-        </h1>
-        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+    <div className={form.page}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <h1 className={form.title}>Login</h1>
+        {errorMessage && <p className={form.error}>{errorMessage}</p>}
 
         <div>
-          <label htmlFor="signup-email" className="login-label">
+          <label htmlFor="login-email" className={form.label}>
             Email
           </label>
           <input
-            id="signup-email"
+            id="login-email"
+            className={form.input}
             type="text"
             value={email}
             onChange={(element) => setEmail(element.target.value)}
@@ -59,11 +44,12 @@ function LoginPage() {
           />
         </div>
         <div>
-          <label htmlFor="signup-password" className="login-label">
+          <label htmlFor="login-password" className={form.label}>
             Password
           </label>
           <input
-            id="signup-password"
+            id="login-password"
+            className={form.input}
             type="password"
             value={password}
             onChange={(element) => setPassword(element.target.value)}
@@ -72,7 +58,9 @@ function LoginPage() {
           />
         </div>
 
-        <button type="submit">Login</button>
+        <button type="submit" className={form.button}>
+          Login
+        </button>
       </form>
     </div>
   );

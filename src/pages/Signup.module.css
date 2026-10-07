@@ -1,0 +1,10 @@
+.form {
+  composes: form from "../styles/Form.module.css";
+  background-color: rgb(98, 208, 201);
+}
+
+.input {
+  composes: input from "../styles/Form.module.css";
+  margin-bottom: 50px;
+  border-radius: 3.3rem;
+}

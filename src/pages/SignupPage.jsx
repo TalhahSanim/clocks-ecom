@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../api/auth";
 import { useAuth } from "../context/UseAuth";
-import "./Signup.css";
+import form from "../styles/Form.module.css";
+
+import styles from "./Signup.module.css";
 
 function SignupPage() {
   const [name, setName] = useState("");
@@ -26,34 +28,18 @@ function SignupPage() {
 
   return (
     <>
-      <div className="signup-page">
-        <form
-          onSubmit={handleSubmit}
-          style={{
-            backgroundColor: "rgb(98, 208, 201)",
-            width: "200px",
-            height: "200px",
-            display: "flex",
-            flexDirection: "column",
-            margin: "0 150px",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "10rem",
-            borderRadius: "2rem",
-            boxShadow: " 0px 2px  8px  rgb(145, 255, 255)",
-          }}
-        >
-          <h1 className="signupTitle" style={{ fontWeight: "100" }}>
-            Register
-          </h1>
-          {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+      <div className={form.page}>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <h1 className={form.title}>Register</h1>
+          {errorMessage && <p className={form.error}>{errorMessage}</p>}
           <div>
-            <label htmlFor="signup-name" className="signup-label">
+            <label htmlFor="signup-name" className={form.label}>
               Name
             </label>
 
             <input
               id="signup-name"
+              className={styles.input}
               type="text"
               value={name}
               onChange={(element) => setName(element.target.value)}
@@ -63,11 +49,12 @@ function SignupPage() {
           </div>
 
           <div>
-            <label htmlFor="signup-email" className="signup-label">
+            <label htmlFor="signup-email" className={form.label}>
               Email
             </label>
             <input
               id="signup-email"
+              className={styles.input}
               type="text"
               value={email}
               onChange={(element) => setEmail(element.target.value)}
@@ -76,12 +63,13 @@ function SignupPage() {
             />
           </div>
           <div>
-            <label htmlFor="signup-password" className="signup-label">
+            <label htmlFor="signup-password" className={form.label}>
               Password
             </label>
             <input
               id="signup-password"
-              type="text"
+              className={styles.input}
+              type="password"
               value={password}
               onChange={(element) => setPassword(element.target.value)}
               required
@@ -89,7 +77,9 @@ function SignupPage() {
             />
           </div>
 
-          <button type="submit">Create Your Account</button>
+          <button type="submit" className={form.button}>
+            Create Your Account
+          </button>
         </form>
       </div>
     </>

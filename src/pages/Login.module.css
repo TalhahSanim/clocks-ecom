@@ -1,0 +1,4 @@
+.form {
+  composes: form from "../styles/Form.module.css";
+  background-color: rgb(80, 176, 170);
+}

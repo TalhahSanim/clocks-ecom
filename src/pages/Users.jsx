@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./Users.css";
+import styles from "./Users.module.css";
 const users = [
   { id: 1, name: "Ada Lovelace" },
   { id: 2, name: "Alan Turing" },
@@ -32,55 +32,34 @@ function Users({ onCartAdd }) {
   return (
     <>
       <h1>User List</h1>
-      <ul
-        style={{
-          listStyle: "none",
-          fontSize: "3rem",
-          lineHeight: "1.6",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-around",
-        }}
-      >
+      <ul className={styles.userList}>
         {users.map((user) => (
           <li key={user.id}>
             <Link
               to={`/users/${user.id}/${user.name}`}
-              style={{ textDecoration: "none" }}
+              className={styles.userLink}
             >
               {user.name}
             </Link>
           </li>
         ))}
       </ul>
-      <ul
-        className="productList"
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <ul className={styles.productList}>
         {products.map((product) => (
-          <li
-            key={product.id}
-            className="product"
-            style={{
-              padding: "2rem",
-              backgroundColor: "rgb(86, 193, 168)",
-              color: "rgb(146, 243, 217)",
-              fontSize: "1.5rem",
-              fontWeight: "bold",
-            }}
-          >
+          <li key={product.id} className={styles.product}>
             <img
               src={product.imgurl}
-              style={{ width: "100%", borderRadius: "2rem" }}
+              alt={product.name}
+              className={styles.productImage}
             ></img>
             <p>{product.name}</p>
             <p>{product.price}</p>
-            <button onClick={() => onCartAdd(product.name)}>Add to Cart</button>
+            <button
+              className={styles.button}
+              onClick={() => onCartAdd(product.name)}
+            >
+              Add to Cart
+            </button>
           </li>
         ))}
       </ul>
