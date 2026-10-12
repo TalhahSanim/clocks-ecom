@@ -1,0 +1,26 @@
+.navBar {
+  background:
+    linear-gradient(-90deg, var(--bg-transparent) 70%, var(--bg-highlight) 20%),
+    url("https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0")
+      center / cover no-repeat;
+  box-shadow: inset 2px 2px 2px solid rgb(42, 147, 112);
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 2%;
+  margin-bottom: 2rem;
+}
+
+.heroImage {
+  width: 200px;
+  border-radius: 20px;
+}
+
+.navTitle {
+  color: #6fd4c8;
+  font-size: 6rem;
+  text-align: left;
+  margin: 8rem 0 10rem;
+  text-shadow: 4px 2px 2px rgba(0, 0, 0, 0.5);
+  position: relative;
+  /* padding-top: 100px; */
+}

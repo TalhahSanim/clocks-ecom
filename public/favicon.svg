@@ -1,43 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="800px" height="800px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-viewBox="0 0 2048 2048"
- xmlns:xlink="http://www.w3.org/1999/xlink">
- <defs>
-  <style type="text/css">
-   <![CDATA[
-    .fil6 {fill:none}
-    .fil0 {fill:#880E4F}
-    .fil1 {fill:#C72464}
-    .fil5 {fill:#E65100}
-    .fil3 {fill:#F06292}
-    .fil4 {fill:#FF6D00}
-    .fil2 {fill:#780B45;fill-rule:nonzero}
-   ]]>
-  </style>
- </defs>
- <g id="Layer_x0020_1">
-  <metadata id="CorelCorpID_0Corel-Layer"/>
-  <g id="_439855472">
-   <path class="fil0" d="M797 360c17,1 45,-73 56,-61 91,99 275,90 340,2 15,-21 32,66 58,59l0 427 -455 0 0 -427z"/>
-   <path class="fil0" d="M1787 1586c2,39 3,77 5,111l1 33 -33 0 -192 0 -30 0 -1 -31 -5 -114 257 0z"/>
-   <path class="fil0" d="M517 1586l-5 114 -1 31 -30 0 -192 0 -33 0 1 -33c1,-34 3,-72 5,-111l257 0z"/>
-   <path class="fil1" d="M1236 355c99,2 284,19 330,120 37,82 68,153 94,221 26,69 47,133 64,200 20,79 35,225 46,384 7,103 12,212 17,311l-257 0 -28 -595 -61 -153 0 777 0 0c0,36 -15,69 -39,93 -24,24 -57,39 -93,39l-568 0c-36,0 -69,-15 -93,-39 -24,-24 -39,-57 -39,-93l0 -776 -61 153 -28 595 -257 0c4,-99 10,-209 17,-311 11,-159 25,-305 46,-384 17,-67 38,-132 64,-200 26,-68 57,-140 94,-221 21,-46 68,-73 120,-90 64,-20 142,-28 209,-32 5,126 98,227 212,227 113,0 206,-100 212,-225z"/>
-   <path class="fil2" d="M1011 625c-128,0 -207,-158 -205,-271l21 -33c18,-27 30,-35 32,-7 7,88 55,221 165,230l-13 81z"/>
-   <path class="fil2" d="M1037 625c128,0 207,-158 205,-271l-21 -33c-18,-27 -30,-35 -32,-7 -7,88 -55,221 -165,230l13 81z"/>
-   <g>
-    <polygon class="fil0" points="1051,776 972,776 955,1108 1121,1243 "/>
-    <polygon class="fil3" points="1121,1242 1130,1307 955,1497 976,1124 "/>
-    <polygon class="fil3" points="982,608 1060,608 1097,816 955,1108 "/>
-   </g>
-   <g>
-    <path class="fil4" d="M916 584c44,20 90,37 90,48 0,12 -46,48 -90,48 -44,0 -30,-22 -30,-48 0,-27 -14,-69 30,-48z"/>
-    <path class="fil4" d="M1140 584c-44,20 -90,37 -90,48 0,12 46,48 90,48 44,0 30,-22 30,-48 0,-27 14,-69 -30,-48z"/>
-   </g>
-   <ellipse class="fil5" cx="1025" cy="632" rx="44" ry="43"/>
-  </g>
-  <rect class="fil6" width="2048" height="2048"/>
- </g>
-</svg>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="SVGRepo_iconCarrier"> <defs> <path id="watch-a" d="M3,13 C1.34314575,13 0,11.6568542 0,10 C0,8.34314575 1.34314575,7 3,7 C4.65685425,7 6,8.34314575 6,10 C6,11.6568542 4.65685425,13 3,13 Z M1,0 L5,0 L5,4 L1,4 L1,0 Z M1,16 L5,16 L5,20 L1,20 L1,16 Z"/> <path id="watch-c" d="M7,16 C9.76142375,16 12,13.7614237 12,11 C12,8.23857625 9.76142375,6 7,6 C4.23857625,6 2,8.23857625 2,11 C2,13.7614237 4.23857625,16 7,16 Z M3.26271453,5.08008856 L4.00487852,0.908179726 C4.09881942,0.380111932 4.51123645,0 4.99024297,0 L9.00975703,0 C9.48876355,0 9.90118058,0.380111932 9.99512148,0.908179726 L10.7372855,5.08008856 C12.6980397,6.32052558 14,8.50821823 14,11 C14,13.4917818 12.6980397,15.6794744 10.7372855,16.9199114 L9.99512148,21.0918203 C9.90118058,21.6198881 9.48876355,22 9.00975703,22 L4.99024297,22 C4.51123645,22 4.09881942,21.6198881 4.00487852,21.0918203 L3.26271453,16.9199114 C1.30196034,15.6794744 0,13.4917818 0,11 C0,8.50821823 1.30196034,6.32052558 3.26271453,5.08008856 Z M5.47476973,4.16664725 C5.96575656,4.057541 6.47615857,4 7,4 C7.52384143,4 8.03424344,4.057541 8.52523027,4.16664725 L8.1859537,2.25947992 L5.8140463,2.25947992 L5.47476973,4.16664725 Z M5.47476973,17.8333527 L5.8140463,19.7405201 L8.1859537,19.7405201 L8.52523027,17.8333527 C8.03424344,17.942459 7.52384143,18 7,18 C6.47615857,18 5.96575656,17.942459 5.47476973,17.8333527 Z"/> </defs> <g fill="none" fill-rule="evenodd" transform="translate(5 1)"> <g transform="translate(4 1)"> <mask id="watch-b" fill="#ffffff"> <use xlink:href="#watch-a"/> </mask> <use fill="#D8D8D8" xlink:href="#watch-a"/> <g fill="#3a736a" mask="url(#watch-b)"> <rect width="24" height="24" transform="translate(-9 -2)"/> </g> </g> <mask id="watch-d" fill="#ffffff"> <use xlink:href="#watch-c"/> </mask> <use fill="#000000" fill-rule="nonzero" xlink:href="#watch-c"/> <g fill="#71d1a4" mask="url(#watch-d)"> <rect width="24" height="24" transform="translate(-5 -1)"/> </g> </g> </g>
+</svg>

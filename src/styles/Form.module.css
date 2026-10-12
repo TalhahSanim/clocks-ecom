@@ -5,16 +5,14 @@
 }
 
 .form {
-  width: 200px;
-  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 150px;
   padding: 10rem;
   border-radius: 2rem;
-  box-shadow: 0 2px 8px rgb(145, 255, 255);
+  background: var(--bg-highlight);
+  box-shadow: 0 2px 8px var(--bg-highlight);
 }
 
 .title {
@@ -48,7 +46,7 @@
 
 .button {
   margin-top: 2rem;
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 2rem;
   background: rgba(110, 227, 192, 0.68);
   color: #fff;
   font-size: 1.2rem;
@@ -56,6 +54,7 @@
   border: none;
   border-radius: 1.2rem;
   cursor: pointer;
+  /* width: 100%; */
 }
 
 .error {

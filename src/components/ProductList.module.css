@@ -7,17 +7,22 @@
 
 .panel {
   background-color: #439899;
-  padding: 15rem;
+  padding: 5rem;
   box-shadow: 0 2px 5px #443df5;
   border-radius: 2rem;
 }
 
 .heading {
   color: white;
+  font-size: 3.2rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 .item {
   color: white;
+  font-size: 1.8rem;
+  text-align: center;
 }
 
 .buyButton,
@@ -25,7 +30,8 @@
   padding: 22px;
   border: none;
   border-radius: 5px;
-  margin: 20px;
+  margin: 20px 20px;
+  cursor: pointer;
 }
 
 .buyButton {
@@ -34,5 +40,13 @@
 }
 
 .deleteButton {
-  background-color: maroon;
+  background-color: rgb(241, 42, 42);
+  color: white;
+  font-weight: 700;
+  width: 75%;
+  margin: 20px 70px;
+}
+
+.deleteButton:hover {
+  background-color: rgb(243, 122, 122);
 }

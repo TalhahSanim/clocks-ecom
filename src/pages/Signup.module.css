@@ -1,6 +1,5 @@
 .form {
   composes: form from "../styles/Form.module.css";
-  background-color: rgb(98, 208, 201);
 }
 
 .input {

@@ -32,7 +32,7 @@ function ProductList({ isLoggedIn, isAdmin }) {
 
               {isLoggedIn && !isAdmin && (
                 <button
-                  onClick={() => decrementStock(product.id, 1)}
+                  onClick={() => decrementStock(product.id, -1)}
                   className={styles.buyButton}
                 >
                   Buy 1
@@ -44,7 +44,7 @@ function ProductList({ isLoggedIn, isAdmin }) {
                   onClick={() => removeDoc(product.id)}
                   className={styles.deleteButton}
                 >
-                  Delete 1
+                  Delete Stock (1)
                 </button>
               )}
             </div>

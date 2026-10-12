@@ -5,35 +5,15 @@ import { useAuth } from "./context/UseAuth";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Nav from "./components/Nav";
-import Users from "./pages/Users";
-import UserDetail from "./pages/UserDetail";
+import Users from "./pages/Catalogue";
+import UserDetail from "./pages/CatalogueDetails";
 import { useState } from "react";
 import ProductsPage from "./pages/ProductsPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
-import styles from "./App.module.css";
-
-function AuthStatus() {
-  const { isLoggedIn, user, logout, isLoading } = useAuth();
-
-  if (isLoading) {
-    return <h3 className={styles.loading}>Checking Login Status...</h3>;
-  }
-
-  if (!isLoggedIn) {
-    return <span className={styles.authStatus}>You are not Logged In!</span>;
-  }
-
-  return (
-    <>
-      <h3 className={styles.authStatus}>Welcome, {user.name}</h3>
-      <button onClick={logout} className={styles.logoutButton}>
-        Logout
-      </button>
-    </>
-  );
-}
+// import styles from "./App.module.css";
+import Footer from "./components/Footer";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -46,12 +26,8 @@ function App() {
   }
   return (
     <div>
+      <Nav cartCount={cart} />
       <AuthProvider>
-        <div className={styles.navBar}>
-          <Nav cartCount={cart} />
-          <AuthStatus />
-        </div>
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -60,7 +36,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
 
           <Route
-            path="/users"
+            path="/catalogue"
             element={
               <ProtectedRoute>
                 <Users onCartAdd={addToCart} />
@@ -80,6 +56,7 @@ function App() {
           <Route path="*" element={<Home />} />
         </Routes>
       </AuthProvider>
+      <Footer />
     </div>
   );
 }

@@ -10,11 +10,11 @@ import {
 import { db } from "../firebase";
 
 const sampleProducts = [
-  { name: "Classic Tee", price: 74.99, category: "apparel", stock: 50 },
-  { name: "Denim Jacket", price: 54.99, category: "apparel", stock: 45 },
-  { name: "Canvas Tote Bag", price: 74.99, category: "acessories", stock: 88 },
-  { name: "Wool Beanie", price: 44.99, category: "acessories", stock: 43 },
-  { name: "Running Sneakers", price: 66.99, category: "apparel", stock: 99 },
+  { name: "Oak Wall Clock", price: 89.99, category: "wall", stock: 30 },
+  { name: "Brass Mantel Clock", price: 149.99, category: "mantel", stock: 15 },
+  { name: "Retro Alarm Clock", price: 39.99, category: "alarm", stock: 60 },
+  { name: "Pendulum Grandfather Clock", price: 899.99, category: "floor", stock: 5 },
+  { name: "Minimalist Desk Clock", price: 49.99, category: "desk", stock: 45 },
 ];
 
 export async function seedProducts() {
@@ -28,7 +28,7 @@ export async function seedProducts() {
   }
 }
 export async function setProductBySKU(sku, product) {
-  //TODO: setProductBySKU("SKU-001"),  { name: "Classic Tee", price: 74.99, category: "apparel", stock: 50 }
+  //TODO: setProductBySKU("SKU-001"),  { name: "Oak Wall Clock", price: 89.99, category: "wall", stock: 30 }
   await setDoc(doc(db, "products", sku), product);
 }
 
