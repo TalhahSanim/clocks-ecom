@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import form from "../styles/Form.module.css";
-function UserDetail() {
+function CatalogueDetails() {
   const { id } = useParams();
   const { name } = useParams();
 
@@ -9,7 +9,7 @@ function UserDetail() {
     <>
       <div>
         <h1>
-          User #{id}: {name}
+          Product #{id}: {name}
         </h1>
         <p>
           This is where you would "fetch" and show the details for the user.
@@ -21,4 +21,6 @@ function UserDetail() {
     </>
   );
 }
-export default UserDetail;
+export default CatalogueDetails;
+
+// THis page will cbecome single product page as catalogue details page
