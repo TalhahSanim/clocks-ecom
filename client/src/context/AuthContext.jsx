@@ -43,6 +43,7 @@ export function AuthProvider({ children }) {
   const value = {
     user,
     isLoggedIn,
+    isLoading, // true until firebase validates it
     login,
     logout,
   };
