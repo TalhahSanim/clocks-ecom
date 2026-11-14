@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(), vanillaExtractPlugin()],
   server: {
     proxy: {
-      "/api": "http://localhost:3001",
+      "/api": "http://localhost:3000",
     },
   },
 });
