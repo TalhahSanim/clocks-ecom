@@ -1,6 +1,7 @@
 // All API routes live under /api
 import express from "express";
 import authRoutes from "./authRoutes.js";
+import productRoutes from "./productRoutes.js";
 
 const router = express.Router();
 
@@ -12,7 +13,7 @@ export default () => {
 
   // TODO: Sub-routes get added here Later
   router.use("/auth", authRoutes());
-  // router.use("/products",productsRoutes());
+  router.use("/products", productsRoutes());
 
   return router;
 };
