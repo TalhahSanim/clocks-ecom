@@ -1,9 +1,9 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "node --watch server.js",
-    "devpc": "@powershell -Command $env:DEBUG='app*';node --watch server.js",
-    "start": "node server.js",
+    "dev": "node --watch src/server.js",
+    "devpc": "@powershell -Command $env:DEBUG='app*';node --watch src/server.js",
+    "start": "node src/server.js",
     "seed": "node src/scripts/seed.js"
   },
   "dependencies": {

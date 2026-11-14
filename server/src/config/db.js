@@ -1,5 +1,7 @@
 // Connects to firestore and firebase auth  using service account key
-import admin from "firebase-admin";
+import { initializeApp, cert } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
+import { getAuth } from "firebase-admin/auth";
 import { readFileSync } from "fs";
 import createDebug from "debug";
 import config from "./config.js";
@@ -13,14 +15,14 @@ const serviceAccount = JSON.parse(
 );
 
 // Start Admin SDK once for the server
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+initializeApp({
+  credential: cert(serviceAccount),
 });
 
 // Firestore,auth uses login tokens
 // Supabase will store the images
-export const db = admin.firestore();
-export const adminAuth = admin.auth();
+export const db = getFirestore();
+export const adminAuth = getAuth();
 
 // small query and if it works the key and project are correct
 export const pingDb = db.listCollections().then((collections) => {
