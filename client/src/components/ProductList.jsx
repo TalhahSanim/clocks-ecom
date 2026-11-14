@@ -18,7 +18,7 @@ function ProductList({ isLoggedIn, isAdmin }) {
       setProducts(items);
     });
     return () => unsubscribe();
-  });
+  }, []);
   return (
     <div>
       <ul className={styles.list}>
@@ -32,7 +32,7 @@ function ProductList({ isLoggedIn, isAdmin }) {
 
               {isLoggedIn && !isAdmin && (
                 <button
-                  onClick={() => decrementStock(product.id, -1)}
+                  onClick={() => decrementStock(product.id, 1)}
                   className={styles.buyButton}
                 >
                   Buy 1
