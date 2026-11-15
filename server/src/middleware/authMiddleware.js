@@ -9,7 +9,7 @@ const MAX_SESSION_SECONDS = 60 * 60 * 2;
 
 export async function requireAuth(req, res, next) {
   const header = req.headers.authorization || "";
-  const token = header.starWith("Bearer") ? header.slice(7) : null;
+  const token = header.startsWith("Bearer ") ? header.slice(7) : null;
   if (!token) return next(ApiError.unauthorized("Please Login First"));
 
   try {
