@@ -1,8 +1,9 @@
 // Every product request in one area and pages call these and never directly through axios itself
 import api from "./api";
 
-export const getAll = () =>
-  api.get("/products").then((response) => response.data);
+// getAll ({category -> "alarm",sort-> "price"}) -> GET /api/products?category=alarm&sort=price
+export const getAll = (params = {}) =>
+  api.get("/products", { params }).then((response) => response.data);
 
 export const getById = (id) =>
   api.get(`/products/${id}`).then((response) => response.data);

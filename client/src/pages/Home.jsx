@@ -1,8 +1,18 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getAll } from "../api/products";
+import ProductCard from "../components/ProductCard";
 import styles from "./Home.module.css";
-import { SiStyleshare } from "react-icons/si";
 
-const Home = () => {
+export default function Home() {
+  const [newest, setNewest] = useState([]);
+
+  // Newest Clocks -> orderBy createdAt desc  + limit 4
+  useEffect(() => {
+    getAll({ sort: "newest", limit: 4 })
+      .then(setNewest)
+      .catch(() => setNewest([]));
+  }, []);
   return (
     <>
       <title>Welcome to Parralel Store</title>
@@ -33,8 +43,14 @@ const Home = () => {
           </p>
         </div>
       </section>
-      {/* have the produc id in function call parameters */}
+      <section className={styles.newSelections}>
+        <h2>New Selections</h2>
+        <ul className={styles.newGrid}>
+          {newest.map((product, index) => (
+            <ProductCard key={product.id} product={product} index={index} />
+          ))}
+        </ul>
+      </section>
     </>
   );
-};
-export default Home;
+}

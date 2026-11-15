@@ -71,3 +71,17 @@
     background: var(--bg-secondary);
   }
 }
+
+/* New Selection -> latest clocks */
+.newSelections {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+.newGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+  list-style: none;
+}

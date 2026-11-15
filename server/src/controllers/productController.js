@@ -7,18 +7,33 @@ import ApiError from "../utilities/ApiError.js";
 const toProduct = (doc) => ({ id: doc.id, ...doc.data() });
 
 export default {
-  // name -> get all clocks
+  // name -> get  clocks -> one category,sorted and limited optionally
   // path -> /api/products
   // request -> GET
   // type -> public
   // description -> sends every clock sorted by name
 
   async getAllProducts(req, res, next) {
+    // Only let known values so the URL cannot ask anything odd
+    const SORTS = {
+      name: ["name", "asc"],
+      price: ["price", "asc"],
+      newest: ["createdAt", "desc"],
+    };
+    const { category, sort = "name" } = req.query;
+    const [sortField, sortDirection] = SORTS[sort] || SORTS.name;
+    // max is 50 clocks each request to limit data being sent/responded
+    const limit = Math.min(req.query.limit || 50, 50);
     try {
-      const snapshot = await db
-        .collection("products")
-        .orderBy("name", "asc")
-        .get();
+      let query = db.collection("products");
+      // Filter -> one category  with orderBy on another field which requires composite index -> Category ASC and price ASC or category ASC and createdAt DESC
+      if (category && category !== "all") {
+        query = query.where("category", "==", category);
+      }
+      // Sort key
+      query = query.orderBy(sortField, sortDirection).limit(limit);
+
+      const snapshot = await query.get();
       res.send(snapshot.docs.map(toProduct));
     } catch (err) {
       next(ApiError.internal("The Clock Could Not Be Loaded", err));
