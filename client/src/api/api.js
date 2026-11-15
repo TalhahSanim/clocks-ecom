@@ -1,6 +1,18 @@
 // One axios for the app
 import axios from "axios";
 import { auth } from "../firebase";
+import { signOut } from "firebase/auth";
+
+// Server says the login is expired -> sign out so user logs in again
+api.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    if (error.response?.status === 401 && auth.currentUser) {
+      await signOut(auth);
+    }
+    return Promise.reject(error);
+  },
+);
 
 //  "/api" goes to vite's proxy to http://localhost:3000/api
 const api = axios.create({ baseURL: "/api", timeout: 10000 });

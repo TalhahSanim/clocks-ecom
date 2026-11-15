@@ -2,22 +2,32 @@
 import { adminAuth, db } from "../config/db.js";
 import ApiError from "../utilities/ApiError.js";
 
-// Checks Firebase Id token in Authorization header and sets req.user
+// TTL -> login is accepted for 2 hours then  then a user must login again
+// firebase ID tokens expire after 1 hours and refresh automatically
+// this caps the whole session
+const MAX_SESSION_SECONDS = 60 * 60 * 2;
+
 export async function requireAuth(req, res, next) {
   const header = req.headers.authorization || "";
-  const token = header.startsWith("Bearer") ? header.slice(7) : null;
-
-  if (!token) {
-    return next(ApiError.unauthorized("Please Login First"));
-  }
+  const token = header.starWith("Bearer") ? header.slice(7) : null;
+  if (!token) return next(ApiError.unauthorized("Please Login First"));
 
   try {
-    // Firebase checks the signature and the 1-hour expiry for us
     req.user = await adminAuth.verifyIdToken(token);
-    next();
   } catch (err) {
-    next(ApiError.unauthorized("Your Login Has Expired, Please Login Again"));
+    return next(
+      ApiError.unauthorized("Your Login Has Expired, Please Login Again"),
+    );
   }
+
+  // auth-time is in seconds whilst Date.now is in milliseconds
+  const sessionTime = Math.floor(Date.now() / 1000) - req.user.auth_time;
+  if (sessionTime > MAX_SESSION_SECONDS) {
+    return next(
+      ApiError.unauthorized("Your Session Has Expired, Please Login Again"),
+    );
+  }
+  next();
 }
 
 // Only allow users with admin
