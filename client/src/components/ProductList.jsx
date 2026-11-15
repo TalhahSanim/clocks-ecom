@@ -1,57 +1,57 @@
-import { collection, onSnapshot } from "firebase/firestore";
-import { useState, useEffect } from "react";
-
-import { db } from "../firebase";
-import { decrementStock, removeDoc } from "../api/products";
+// Store Admin -> Every Clock with Edit and Delete
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { getAll, remove } from "../api/products";
+import { errorMessage } from "../api/api";
+import ProductCard from "./ProductCard";
 import styles from "./ProductList.module.css";
-function ProductList({ isLoggedIn, isAdmin }) {
+
+export default function ProductList() {
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState("");
+
+  const load = () =>
+    getAll()
+      .then(setProducts)
+      .catch((err) => setError(errorMessage(err)));
 
   useEffect(() => {
-    const productsRef = collection(db, "products");
-    const unsubscribe = onSnapshot(productsRef, (snapshot) => {
-      const items = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-
-      setProducts(items);
-    });
-    return () => unsubscribe();
+    load();
   }, []);
+
+  // Delete and reload the list
+  async function handleDelete(product) {
+    if (!window.confirm(`Delete ${product.name}`)) return;
+    try {
+      await remove(product.id);
+      load();
+    } catch (err) {
+      setError(errorMessage(err));
+    }
+  }
   return (
-    <div>
+    <div className={styles.panel}>
+      <h2 className={styles.heading}>Product Inventory</h2>
+      {error && <p role="alert">{error}</p>}
       <ul className={styles.list}>
-        <div className={styles.panel}>
-          <h2 className={styles.heading}>Product Inventory</h2>
-          {products.map((product) => (
-            <div key={product.id}>
-              <li className={styles.item}>
-                {product.name} - {product.price} ({product.stock} in stock)
-              </li>
-
-              {isLoggedIn && !isAdmin && (
-                <button
-                  onClick={() => decrementStock(product.id, 1)}
-                  className={styles.buyButton}
-                >
-                  Buy 1
-                </button>
-              )}
-
-              {isAdmin && (
-                <button
-                  onClick={() => removeDoc(product.id)}
-                  className={styles.deleteButton}
-                >
-                  Delete Stock (1)
-                </button>
-              )}
-            </div>
-          ))}
-        </div>
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product}>
+            <span>{product.stock} in stock</span>
+            <Link
+              to={`/products/${product.id}/edit`}
+              className={styles.editButton}
+            >
+              Edit
+            </Link>
+            <button
+              onClick={() => handleDelete(product)}
+              className={styles.deleteButton}
+            >
+              Delete
+            </button>
+          </ProductCard>
+        ))}
       </ul>
     </div>
   );
 }
-export default ProductList;

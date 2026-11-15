@@ -1,4 +1,4 @@
-import AddProductButton from "../components/AddProductButton";
+import { Link } from "react-router-dom";
 import ExtendedNav from "../components/ExtendedNav";
 import Nav from "../components/Nav";
 import ProductList from "../components/ProductList";
@@ -14,9 +14,13 @@ function ProductsPage() {
       <ExtendedNav />
       <div className={styles.header}>
         <h2 className={styles.heading}>Store Admin</h2>
-        {isAdmin && <AddProductButton />}
+        {isAdmin && (
+          <Link to="/products/add" className={styles.addButton}>
+            ➕ Add Clock
+          </Link>
+        )}
         <div>
-          <ProductList isLoggedIn={isLoggedIn} isAdmin={isAdmin} />
+          <ProductList />
         </div>
       </div>
     </>
