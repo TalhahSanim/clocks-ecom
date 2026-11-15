@@ -1,45 +1,17 @@
-import {
-  doc,
-  collection,
-  addDoc,
-  setDoc,
-  updateDoc,
-  increment,
-  deleteDoc,
-} from "firebase/firestore";
-import { db } from "../firebase";
+// Every product request in one area and pages call these and never directly through axios itself
+import api from "./api";
 
-const sampleProducts = [
-  { name: "Oak Wall Clock", price: 89.99, category: "wall", stock: 30 },
-  { name: "Brass Mantel Clock", price: 149.99, category: "mantel", stock: 15 },
-  { name: "Retro Alarm Clock", price: 39.99, category: "alarm", stock: 60 },
-  { name: "Pendulum Grandfather Clock", price: 899.99, category: "floor", stock: 5 },
-  { name: "Minimalist Desk Clock", price: 49.99, category: "desk", stock: 45 },
-];
+export const getAll = () =>
+  api.get("/products").then((response) => response.data);
 
-export async function seedProducts() {
-  const productsRef = collection(db, "products");
-  for (const product of sampleProducts) {
-    const docRef = await addDoc(productsRef, {
-      ...product,
-      createdAt: new Date(),
-    });
-    console.log("Added product:", product.name, docRef.id);
-  }
-}
-export async function setProductBySKU(sku, product) {
-  //TODO: setProductBySKU("SKU-001"),  { name: "Oak Wall Clock", price: 89.99, category: "wall", stock: 30 }
-  await setDoc(doc(db, "products", sku), product);
-}
+export const getById = (id) =>
+  api.get(`/products/${id}`).then((response) => response.data);
 
-export async function decrementStock(productId, quantityPurchased) {
-  const productRef = doc(db, "products", productId);
+export const create = (formData) =>
+  api.post("/products", formData).then((response) => response.data);
 
-  await updateDoc(productRef, {
-    stock: increment(-quantityPurchased),
-  });
-}
+export const update = (id, formData) =>
+  api.put(`/products/${id}`, formData).then((response) => response.data);
 
-export async function removeDoc(productId) {
-  await deleteDoc(doc(db, "products", productId));
-}
+export const remove = (id) =>
+  api.delete(`/products/${id}`).then((response) => response.data);
