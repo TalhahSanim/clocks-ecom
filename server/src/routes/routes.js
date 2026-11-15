@@ -13,7 +13,7 @@ export default () => {
 
   // TODO: Sub-routes get added here Later
   router.use("/auth", authRoutes());
-  router.use("/products", productsRoutes());
+  router.use("/products", productRoutes());
 
   return router;
 };
