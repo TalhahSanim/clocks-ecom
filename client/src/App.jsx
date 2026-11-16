@@ -4,12 +4,15 @@ import { useState } from "react";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminRoute from "./components/AdminRoute";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Catalogue from "./pages/Catalogue";
 import ProductDetails from "./pages/ProductDetails";
 import ProductsPage from "./pages/ProductsPage";
+import AddProduct from "./pages/AddProduct";
+import EditProduct from "./pages/EditProduct";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import { AuthProvider } from "./context/AuthContext";
@@ -42,9 +45,25 @@ export default function App() {
         <Route
           path="/products"
           element={
-            <ProtectedRoute>
+            <AdminRoute>
               <ProductsPage />
-            </ProtectedRoute>
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/products/add"
+          element={
+            <AdminRoute>
+              <AddProduct />
+            </AdminRoute>
+          }
+        />
+        <Route
+          path="/products/:id/edit"
+          element={
+            <AdminRoute>
+              <EditProduct />
+            </AdminRoute>
           }
         />
 
