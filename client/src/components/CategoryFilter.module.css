@@ -1,0 +1,31 @@
+/* CategoryFilter -> Radix Toggle as rounded tags */
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.tag {
+  padding: var(--space-2) 1.125rem;
+  border: none;
+  border-radius: 999px;
+  background-color: var(--color-surface-2);
+  color: inherit;
+  font-weight: 500;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.tag:hover {
+  filter: brightness(0.96);
+}
+
+/* Radix sets data-state "on " the selected tag  */
+.tag[data-state="on"] {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.tag:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

@@ -1,8 +1,8 @@
 // The form for Add and Edit Clock and the page decides what happens on submit
 import { useState } from "react";
 import form from "../styles/Form.module.css";
+import CategorySelect from "./CategorySelect";
 
-const CATEGORIES = ["wall", "mantel", "alarm", "floor", "desk", "watch", "hourglass"];
 
 const EMPTY = { name: "", description: "", category: "wall", price: "", stock: "" };
 
@@ -63,15 +63,13 @@ export default function ProductForm({ initial = EMPTY, submitLabel, onSubmit, re
         />
       </label>
       {/* Category Field */}
-      <label className={form.field}>
+      <label htmlFor="category" className={form.field}>
         Category
-        <select className={form.input} name="category" value={values.category} onChange={handleChange}>
-          {CATEGORIES.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat}
-            </option>
-          ))}
-        </select>
+        <CategorySelect
+          id="category"
+          value={values.category}
+          onChange={(category) => setValues({ ...values, category })}
+        />
       </label>
 
       {/* Price Field */}

@@ -1,0 +1,26 @@
+/* SortSelect -> compact Radix select button */
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-width: 236px;
+  padding: var(--space-2) var(--space-3);
+  background: #ffffff;
+  border: 2px solid var(--color-surface-2);
+  border-radius: 8px;
+  color: var(--color-heading);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Radix sets data-state ="open" when list shows */
+.trigger[data-state="open"] {
+  border-color: var(--color-primary);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

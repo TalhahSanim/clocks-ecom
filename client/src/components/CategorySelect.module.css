@@ -1,0 +1,40 @@
+.trigger {
+  composes: input from "../styles/Form.module.css"; /* Same appearance text box */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.content {
+  min-width: var(--radix-select-trigger-width);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-1);
+  z-index: 60;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  text-transform: capitalize;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Radix sets data-highlighted on item under the mouse or keyboard */
+.item[data-highlighted] {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+.item[data-state="checked"] {
+  font-weight: 700;
+}
+.check {
+  margin-left: var(--space-3);
+}
