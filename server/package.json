@@ -8,6 +8,7 @@
     "seed": "node src/scripts/seed.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
     "cors": "^2.8.6",
     "debug": "^4.4.3",
     "dotenv": "^18.0.10",
