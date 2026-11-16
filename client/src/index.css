@@ -1,54 +1,83 @@
 /* index.css */
-@import url("https://fonts.googleapis.com/css2?family=Scope+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Sans:wght@400;600&display=swap");
 
 :root {
-  --text: #393a54;
-  --text-h: #08060d;
-  /* --bg: linear-gradient(rgb(16, 43, 38), rgb(1, 1, 1)); */
-  --bg: rgb(10, 25, 22);
-  --bg-light: rgba(52, 213, 157, 0.72);
-  --bg-dark: rgb(13, 37, 34);
-  --bg-secondary: rgb(33, 90, 84);
-  --bg-highlight: #c3ece1;
-  --bg-transparent: #c3ece19b;
+  /* Brand Colors */
+  --color-bg: #f0fdfa; /*Page colors*/
+  --color-surface: #d8f2ee; /*Panel colors*/
+  --color-surface-2: #b2e5df; /*cards, pills*/
+  --color-header: #f0fdfa; /*navbar*/
+  --color-pill: #cbfbf1; /*current page in nav, theme button*/
+  --color-primary: #009689; /*Buttons and selected pills*/
+  --color-primary-soft: #b2e5df; /*highlight*/
+  --color-on-primary: #ffffff; /*Text on primary buttons*/
+  --color-heading: #005f5a; /*Our clocks and prices*/
+  --color-text: #0a1f1e;
+  --color-text-muted: #3d6a66;
+  --color-danger: #d93036;
+  --color-success: #009689;
+  --color-border: rgb(0 95 90 /0.15);
+  --font-heading: "Instrument Sans", "Inter", sans-serif;
 
-  color-scheme: light dark;
-  /* color: var(--text); */
-  background: var(--bg-light);
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  /* Corners and shadows */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 3px rgb(0 0 0/0.3);
+  --shadow-md: 0 8px 24px rgb(0 0 0/0.3);
+
+  /* Type */
+  --font-body: "Inter", system-ui, sans-serif;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.75rem, 4vw, 3rem);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-med: 300ms;
+
+  /* Old Names */
+  --bg: var(var(--color-bg));
+  --bg-light: var(var(--color-primary));
+  --bg-dark: var(var(--color-surface));
+  --bg-secondary: var(var(--color-surface-2));
+  --bg-highlight: var(var(--color-primary-soft));
+  --text-h: var(var(--color-heading));
+
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* --text: #7fa8ef; */
-    --text-h: #f3f4f6;
-    /* background: linear-gradient(20deg, rgb(28, 72, 65), rgb(223, 218, 218)); */
-    background: rgb(13, 37, 34);
-  }
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  color: var(--color-heading);
 }
 
 body {
   margin: 0;
-  padding: 0;
-  font-family: "Scope One", sans-serif;
-  /* background-color: rgb(157, 234, 214); */
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.5;
 }
 
-h1,
-h2 {
-  font-weight: 500;
-  color: var(--text-h);
+/* Each pages main column */
+img {
+  max-width: 100%;
+  display: block;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+a {
+  color: var(--color-primary);
 }
