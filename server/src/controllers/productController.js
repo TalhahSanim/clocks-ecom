@@ -2,6 +2,7 @@
 import { db } from "../config/db.js";
 import ApiError from "../utilities/ApiError.js";
 // place image-uploads import
+import { storageBucketUpload, deleteFileFromBucket } from "../utilities/bucketServices.js";
 
 // Firestore document -> plain object with its id
 const toProduct = (doc) => ({ id: doc.id, ...doc.data() });
@@ -54,6 +55,89 @@ export default {
       res.send(toProduct(doc));
     } catch (err) {
       next(ApiError.internal("This Clock Could Not Be Loaded", err));
+    }
+  },
+
+  //  name -> Add a clock
+  //  path -> /api/products
+  // request -> POST
+  // type -> admin
+  // description -> Uploads the image then saves the clock and sends the new id
+  async postProduct(req, res, next) {
+    let image;
+    try {
+      image = await storageBucketUpload(res.locals.filename);
+    } catch (err) {
+      return next(ApiError.internal("The Image Could Not Be Uploaded", err));
+    }
+
+    try {
+      const ref = await db.collection("products").add({
+        name: req.body.name,
+        description: req.body.description,
+        category: req.body.category,
+        // Form data is always text so make number a number
+        price: Number(req.body.price),
+        stock: Number(req.body.stock),
+        image,
+        createdAt: new Date(),
+      });
+      res.status(201).send({ id: ref.id });
+    } catch (err) {
+      next(ApiError.internal("The Clock Could Not Be Saved", err));
+    }
+  },
+  //  name -> edit a clock
+  //  path -> /api/products/:id
+  //  request -> PUT
+  //  type -> admin
+  //  description -> saves new details and a new image replaces the old one
+  async putProductById(req, res, next) {
+    try {
+      const ref = await db.collection("products").doc(req.params.id);
+      const doc = await ref.get();
+      if (!doc.exists) {
+        return next(ApiError.notFound("That Clock Doesn't Exist"));
+      }
+
+      // Keep the old image unless a new one was sent
+      let image = doc.data().image;
+      if (res.locals.filename) {
+        image = await storageBucketUpload(res.locals.filename);
+        await deleteFileFromBucket(doc.data().image);
+      }
+
+      await ref.update({
+        name: req.body.name,
+        description: req.body.description,
+        category: req.body.category,
+        price: Number(req.body.price),
+        stock: Number(req.body.stock),
+        image,
+      });
+      res.send({ id: ref.id, image });
+    } catch (err) {
+      next(ApiError.internal("The Clock Could Not Be Updated", err));
+    }
+  },
+
+  //  name -> delete a clock
+  //  path -> /api/products/:id
+  //  request -> DELETE
+  //  type -> admin
+  // description -> deletes the clock and its image
+  async deleteProductById(req, res, next) {
+    try {
+      const ref = db.collection("products").doc(req.params.id);
+      const doc = await ref.get();
+      if (!doc.exists) {
+        return next(ApiError.notFound("That Clock Doesn't Exist"));
+      }
+      await deleteFileFromBucket(doc.data().image);
+      await ref.delete();
+      res.send({ message: `${doc.data().name} deleted` });
+    } catch (err) {
+      next(ApiError.internal("The Clock Could Not Be Deleted", err));
     }
   },
 };

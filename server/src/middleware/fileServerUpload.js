@@ -6,7 +6,7 @@ import ApiError from "../utilities/ApiError.js";
 export default function fileServerUpload(req, res, next) {
   const file = req.files?.image;
   // PUT -> without a new image -> NO ACTION
-  if (!file) return next;
+  if (!file) return next();
 
   // Time first -> No Two Image.jpg overtake one another
   // Odd characters  become "-" which makes url work
