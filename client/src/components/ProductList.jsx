@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { getAll, remove } from "../api/products";
 import { errorMessage } from "../api/api";
 import ProductCard from "./ProductCard";
+import ConfirmDelete from "./ConfirmDelete";
 import styles from "./ProductList.module.css";
 
 export default function ProductList() {
@@ -21,7 +22,6 @@ export default function ProductList() {
 
   // Delete and reload the list
   async function handleDelete(product) {
-    if (!window.confirm(`Delete ${product.name}`)) return;
     try {
       await remove(product.id);
       load();
@@ -37,18 +37,10 @@ export default function ProductList() {
         {products.map((product) => (
           <ProductCard key={product.id} product={product}>
             <span>{product.stock} in stock</span>
-            <Link
-              to={`/products/${product.id}/edit`}
-              className={styles.editButton}
-            >
+            <Link to={`/products/${product.id}/edit`} className={styles.editButton}>
               Edit
             </Link>
-            <button
-              onClick={() => handleDelete(product)}
-              className={styles.deleteButton}
-            >
-              Delete
-            </button>
+            <ConfirmDelete name={product.name} onConfirm={() => handleDelete(product)} />
           </ProductCard>
         ))}
       </ul>

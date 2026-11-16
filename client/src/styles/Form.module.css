@@ -1,71 +1,87 @@
+@import "../index.css";
+
+/* Form -> shared by Login,Signup and product forms  */
 .page {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 70vh;
+  padding: var(--space-3);
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10rem;
-  border-radius: 2rem;
-  background: var(--bg-highlight);
-  box-shadow: 0 2px 8px var(--bg-highlight);
+  gap: var(--space-3);
+  width: min(100%, 480px);
+  padding: clamp(var(--space-4), 6vw, var(--space-6));
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
 }
 
 .title {
-  color: #fff;
-  font-weight: 100;
-  letter-spacing: 1.1rem;
-  padding: 1rem;
-  border-bottom: 3px solid rgb(162, 255, 162);
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 0.4rem;
+  padding-bottom: var(--space-2);
+  border-bottom: 3px solid var(--color-primary);
 }
-
+/* Hidden but read by screen readers ->login and signup use placeholders */
 .label {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
-/* A visible label with its input under it  in product forms */
+/* a visible label with input underneath [product forms] */
 .field {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  width: 100%;
-  text-align: left;
+  gap: var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
 }
 
 .input {
-  margin-bottom: 10px;
-  padding: 20px;
-  width: 100%;
-  background: #c8f0e3;
-  border: none;
-  border-bottom: 4px solid rgb(56, 182, 149);
-  border-radius: 0.3rem;
-  text-align: center;
+  padding: var(--space-3);
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-bottom: 3px solid var(--color-primary);
+  border-radius: var(--radius-sm);
   font: inherit;
-  color: rgb(17, 104, 104);
 }
 
-.input:focus {
-  outline: 5px solid rgb(45, 172, 163);
+.input:focus-visible {
+  outline: 3px solid var(--color-primary-soft);
+  outline-offset: 2px;
 }
 
 .button {
-  margin-top: 2rem;
-  padding: 1.5rem 2rem;
-  background: rgba(110, 227, 192, 0.68);
-  color: #fff;
-  font-size: 1.2rem;
-  font-weight: 600;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font: inherit;
+  font-size: var(--text-lg);
+  font-weight: 700;
   border: none;
-  border-radius: 1.2rem;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  /* width: 100%; */
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: progress;
 }
 
 .error {
-  color: red;
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: rgb(229 72 77 /0.15);
+  color: var(--color-danger);
 }
