@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import { getAll } from "../api/products";
 import { errorMessage } from "../api/api";
 import ProductCard from "../components/products/ProductCard";
+import AddToCartButton from "../components/products/AddToCartButton";
 import CategoryFilter from "../components/products/CategoryFilter";
 import SortSelect from "../components/products/SortSelect";
 import styles from "./Catalogue.module.css";
 
-export default function Catalogue({ onCartAdd }) {
+export default function Catalogue() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -43,9 +44,7 @@ export default function Catalogue({ onCartAdd }) {
       <ul className={styles.productList}>
         {products.map((product, index) => (
           <ProductCard key={product.id} product={product} index={index}>
-            <button className={styles.button} onClick={() => onCartAdd(product.name)} disabled={product.stock === 0}>
-              {product.stock === 0 ? "Sold Out" : "Add To Cart"}
-            </button>
+            <AddToCartButton product={product} />
           </ProductCard>
         ))}
       </ul>
