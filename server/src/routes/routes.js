@@ -2,6 +2,7 @@
 import express from "express";
 import authRoutes from "./authRoutes.js";
 import productRoutes from "./productRoutes.js";
+import savedRoutes from "./savedRoutes.js";
 
 const router = express.Router();
 
@@ -12,6 +13,7 @@ export default () => {
   // TODO: Sub-routes get added here Later
   router.use("/auth", authRoutes());
   router.use("/products", productRoutes());
+  router.use("/saved", savedRoutes());
 
   return router;
 };
