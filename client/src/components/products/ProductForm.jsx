@@ -1,8 +1,7 @@
 // The form for Add and Edit Clock and the page decides what happens on submit
 import { useState } from "react";
-import form from "../styles/Form.module.css";
+import form from "../../styles/Form.module.css";
 import CategorySelect from "./CategorySelect";
-
 
 const EMPTY = { name: "", description: "", category: "wall", price: "", stock: "" };
 

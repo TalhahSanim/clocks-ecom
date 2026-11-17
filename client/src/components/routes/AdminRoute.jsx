@@ -1,6 +1,6 @@
 // ADMINS ONLY -> Server checks with requireAdmin and this component hides the page
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../context/UseAuth";
+import { useAuth } from "../../context/useAuth";
 
 export default function AdminRoute({ children }) {
   const { user, isLoading } = useAuth();

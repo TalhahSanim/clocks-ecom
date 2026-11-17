@@ -1,5 +1,5 @@
 .trigger {
-  composes: input from "../styles/Form.module.css"; /* Same appearance text box */
+  composes: input from "../../styles/Form.module.css"; /* Same appearance text box */
   display: flex;
   justify-content: space-between;
   align-items: center;

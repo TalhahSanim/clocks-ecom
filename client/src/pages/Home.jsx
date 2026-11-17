@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAll } from "../api/products";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/products/ProductCard";
 import styles from "./Home.module.css";
 
 import heroImage from "../assets/pexels-photo-35463239.avif";

@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import { getAll } from "../api/products";
 import { errorMessage } from "../api/api";
-import ProductCard from "../components/ProductCard";
-import CategoryFilter from "../components/CategoryFilter";
-import SortSelect from "../components/SortSelect";
+import ProductCard from "../components/products/ProductCard";
+import CategoryFilter from "../components/products/CategoryFilter";
+import SortSelect from "../components/products/SortSelect";
 import styles from "./Catalogue.module.css";
 
 export default function Catalogue({ onCartAdd }) {

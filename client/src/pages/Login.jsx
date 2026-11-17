@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../api/auth";
-import { useAuth } from "../context/UseAuth";
+import { useAuth } from "../context/useAuth";
 import form from "../styles/Form.module.css";
 import styles from "./Login.module.css";
 function LoginPage() {

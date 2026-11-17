@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
-import ProtectedRoute from "./components/ProtectedRoute";
-import AdminRoute from "./components/AdminRoute";
+import Nav from "./components/layout/Nav";
+import Footer from "./components/layout/Footer";
+import ProtectedRoute from "./components/routes/ProtectedRoute";
+import AdminRoute from "./components/routes/AdminRoute";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -13,8 +13,8 @@ import ProductDetails from "./pages/ProductDetails";
 import ProductsPage from "./pages/ProductsPage";
 import AddProduct from "./pages/AddProduct";
 import EditProduct from "./pages/EditProduct";
-import SignupPage from "./pages/SignupPage";
-import LoginPage from "./pages/LoginPage";
+import SignUp from "./pages/Signup";
+import Login from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
 
 export default function App() {
@@ -27,8 +27,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
 
         {/* Store -> logged in users */}
         <Route

@@ -1,5 +1,3 @@
-@import "../index.css";
-
 /* Form -> shared by Login,Signup and product forms  */
 .page {
   display: flex;

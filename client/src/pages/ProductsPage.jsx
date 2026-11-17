@@ -1,7 +1,7 @@
 // Store Admin Page -> Heading, Add Clock and statistics and table
 import { Link } from "react-router-dom";
-import ProductList from "../components/ProductList";
-import { useAuth } from "../context/UseAuth";
+import ProductList from "../components/products/ProductList";
+import { useAuth } from "../context/useAuth";
 import { TbPlus } from "react-icons/tb";
 import styles from "./ProductsPage.module.css";
 function ProductsPage() {

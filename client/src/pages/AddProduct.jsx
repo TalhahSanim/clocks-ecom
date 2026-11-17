@@ -1,7 +1,7 @@
 // Admin -> Add a new Clock
 import { useNavigate } from "react-router-dom";
 import { create } from "../api/products";
-import ProductForm from "../components/ProductForm";
+import ProductForm from "../components/products/ProductForm";
 import { useToast } from "../context/ToastContext";
 
 export default function AddProduct() {

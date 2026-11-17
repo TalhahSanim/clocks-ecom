@@ -1,10 +1,10 @@
 // Store Admin -> statistics cards and table of every clock with edit and delete
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getAll, remove } from "../api/products";
-import { errorMessage } from "../api/api";
-import { useToast } from "../context/ToastContext";
-import ConfirmDelete from "./ConfirmDelete";
+import { getAll, remove } from "../../api/products";
+import { errorMessage } from "../../api/api";
+import { useToast } from "../../context/ToastContext";
+import ConfirmDelete from "../ConfirmDelete";
 import styles from "./ProductList.module.css";
 
 // at this level or under the stock shows red in low

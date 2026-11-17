@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getById } from "../api/products";
 import { errorMessage } from "../api/api";
-import { useAuth } from "../context/UseAuth";
+import { useAuth } from "../context/useAuth";
 import { TbArrowNarrowLeft } from "react-icons/tb";
 import styles from "./ProductDetails.module.css";
 

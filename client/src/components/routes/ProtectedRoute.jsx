@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../context/UseAuth";
+import { useAuth } from "../../context/useAuth";
 import styles from "./ProtectedRoute.module.css";
 
 function ProtectedRoute({ children }) {

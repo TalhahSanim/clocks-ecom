@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getById, update } from "../api/products";
 import { errorMessage } from "../api/api";
-import ProductForm from "../components/ProductForm";
+import ProductForm from "../components/products/ProductForm";
 
 export default function EditProduct() {
   const { id } = useParams();
