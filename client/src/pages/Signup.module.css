@@ -4,6 +4,4 @@
 
 .input {
   composes: input from "../styles/Form.module.css";
-  margin-bottom: 50px;
-  border-radius: 3.3rem;
 }

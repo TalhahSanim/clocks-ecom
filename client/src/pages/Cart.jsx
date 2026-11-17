@@ -41,7 +41,7 @@ export default function Cart() {
               {/* The cart item has id name and stock so it means the stepper controls will work here too */}
               <AddToCartButton product={item} />
               <p className={styles.linePrice}>{formatPrice(item.price * item.quantity)}</p>
-              <button color={styles.remove} onClick={() => removeFromCart(item.id)}>
+              <button className={styles.remove} onClick={() => removeFromCart(item.id)}>
                 Remove
               </button>
             </li>
