@@ -4,6 +4,7 @@ import { getAll } from "../api/products";
 import { errorMessage } from "../api/api";
 import ProductCard from "../components/products/ProductCard";
 import AddToCartButton from "../components/products/AddToCartButton";
+import SaveButton from "../components/products/SaveButton";
 import CategoryFilter from "../components/products/CategoryFilter";
 import SortSelect from "../components/products/SortSelect";
 import styles from "./Catalogue.module.css";
@@ -44,6 +45,7 @@ export default function Catalogue() {
       <ul className={styles.productList}>
         {products.map((product, index) => (
           <ProductCard key={product.id} product={product} index={index}>
+            <SaveButton clock={product}/>
             <AddToCartButton product={product} />
           </ProductCard>
         ))}

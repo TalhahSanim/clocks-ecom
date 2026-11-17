@@ -5,6 +5,7 @@ import { getById } from "../api/products";
 import { errorMessage } from "../api/api";
 import { useAuth } from "../context/useAuth";
 import AddToCartButton from "../components/products/AddToCartButton";
+import SaveButton from "../components/products/SaveButton";
 import { TbArrowNarrowLeft } from "react-icons/tb";
 import styles from "./ProductDetails.module.css";
 
@@ -46,6 +47,7 @@ export default function ProductDetails() {
           {/* Buttons -> Add Cart and Save for later */}
           <div className={styles.actions}>
             <AddToCartButton product={product} />
+            <SaveButton clock={product} />
             {user?.admin && (
               <Link to={`/products/${id}/edit`} className={styles.edit}>
                 Edit Clock
