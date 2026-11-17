@@ -27,7 +27,7 @@
   color: var(--color-text-muted);
 }
 .statistic .low {
-  color: var(danger); /*? Low stock in red*/
+  color: var(--color-danger); /*? Low stock in red*/
 }
 
 /* The table scrolls sideways instead of being smashed together */

@@ -88,7 +88,7 @@
   max-width: 1200px;
   margin: 0 auto var(--space-6);
   padding: var(--space-5);
-  background: var(pill);
+  background: var(--color-pill);
   border-radius: var(--radius-lg);
 }
 

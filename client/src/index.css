@@ -47,12 +47,12 @@
   --duration-med: 300ms;
 
   /* Old Names */
-  --bg: var(var(--color-bg));
-  --bg-light: var(var(--color-primary));
-  --bg-dark: var(var(--color-surface));
-  --bg-secondary: var(var(--color-surface-2));
-  --bg-highlight: var(var(--color-primary-soft));
-  --text-h: var(var(--color-heading));
+  --bg: var(--color-bg);
+  --bg-light: var(--color-primary);
+  --bg-dark: var(--color-surface);
+  --bg-secondary: var(--color-surface-2);
+  --bg-highlight: var(--color-primary-soft);
+  --text-h: var(--color-heading);
 
   color-scheme: light;
 }
