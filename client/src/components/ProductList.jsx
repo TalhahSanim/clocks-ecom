@@ -5,6 +5,8 @@ import { getAll, remove } from "../api/products";
 import { errorMessage } from "../api/api";
 import ProductCard from "./ProductCard";
 import ConfirmDelete from "./ConfirmDelete";
+import { useToast } from "../context/ToastContext";
+
 import styles from "./ProductList.module.css";
 
 export default function ProductList() {
@@ -20,13 +22,16 @@ export default function ProductList() {
     load();
   }, []);
 
+  const toast = useToast();
+
   // Delete and reload the list
   async function handleDelete(product) {
     try {
       await remove(product.id);
       load();
+      toast(`${product.name} deleted`, "success");
     } catch (err) {
-      setError(errorMessage(err));
+      toast(errorMessage(err), "error");
     }
   }
   return (

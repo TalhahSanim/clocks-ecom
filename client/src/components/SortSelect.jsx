@@ -5,9 +5,9 @@ import styles from "./SortSelect.module.css";
 
 // value -> what api expecting and label is what users browse through
 export const SORTS = [
-  { value: "name", label: "Name A-Z" },
-  { value: "price", label: "Price, Low To High" },
-  { value: "price-desc", label: "Price, High To Low" },
+  { value: "name", label: "Name: A-Z" },
+  { value: "price", label: "Price: Low To High" },
+  { value: "price-desc", label: "Price: High To Low" },
   { value: "newest", label: "Newest" },
 ];
 
@@ -16,7 +16,7 @@ export default function SortSelect({ value, onChange }) {
     <Select.Root value={value} onValueChange={onChange}>
       <Select.Trigger className={styles.trigger} aria-label="Sort">
         <span>
-          SortL <Select.Value />
+          Sort: <Select.Value />
         </span>
         <Select.Icon>🔻</Select.Icon>
       </Select.Trigger>

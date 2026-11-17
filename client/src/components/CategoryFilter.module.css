@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   gap: var(--space-2);
 }
-.tag {
+.tags {
   padding: var(--space-2) 1.125rem;
   border: none;
   border-radius: 999px;
@@ -15,17 +15,17 @@
   cursor: pointer;
 }
 
-.tag:hover {
+.tags:hover {
   filter: brightness(0.96);
 }
 
 /* Radix sets data-state "on " the selected tag  */
-.tag[data-state="on"] {
+.tags[data-state="on"] {
   background: var(--color-primary);
   color: var(--color-on-primary);
 }
 
-.tag:focus-visible {
+.tags:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
