@@ -4,6 +4,8 @@ import { getAll } from "../api/products";
 import ProductCard from "../components/ProductCard";
 import styles from "./Home.module.css";
 
+import heroImage from "../assets/pexels-photo-35463239.avif";
+
 export default function Home() {
   const [newest, setNewest] = useState([]);
 
@@ -15,39 +17,39 @@ export default function Home() {
   }, []);
   return (
     <>
-      <title>Welcome to Parralel Store</title>
-      <section className={styles.homeSection}>
-        <div className={styles.marketing}>
-          <h2>
-            Parrallel Clocks
-            {/* <SiStyleshare /> */}
-          </h2>
-          <div className={styles.imageContainer}>
-            <img
-              src="https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-              className={styles.image}
-            />
-            <Link to="/catalogue" className={styles.cta}>
-              Browse Now
+      <title>Welcome to Parallel Store</title>
+      <section className={styles.hero}>
+        <div>
+          <p className={styles.tagline}>New Designs . Wall, Mantel, Alarm and Desk Clocks</p>
+          <h1 className={styles.heading}>Parallel Clocks</h1>
+          <p className={styles.intro}>
+            Clocks chosen to keep good time and look good doing it. Browse the range, save your favourites and check out
+            in a few clicks.
+          </p>
+          <div className={styles.buttons}>
+            <Link to="/catalogue" className={styles.primary}>
+              Shop The Range
+            </Link>
+            <Link to="/about" className={styles.secondary}>
+              About Us
             </Link>
           </div>
         </div>
-      </section>
-
-      <section className={styles.banner}>
-        <div className={styles.hero}>
-          <h2 className={styles.heading}>Pure style, zero effort</h2>
-          <p className={styles.quote}>
-            "Discover premium daily wear made to move with you."
-          </p>
+        <div className={styles.heroFrame}>
+          <img src={heroImage} alt="A gold plated leather watch" className={styles.heroImage} />
         </div>
       </section>
-      <section className={styles.newSelections}>
-        <h2>New Selections</h2>
-        <ul className={styles.newGrid}>
-          {newest.map((product, index) => (
-            <ProductCard key={product.id} product={product} index={index} />
+
+      <section className={styles.selections}>
+        <div className={styles.selectionsHeader}>
+          <h2>New Selections</h2>
+          <Link to="/catalogue" className={styles.secondary}>
+            View All Clocks
+          </Link>
+        </div>
+        <ul className={styles.grid}>
+          {newest.map((product) => (
+            <ProductCard key={product.id} product={product} />
           ))}
         </ul>
       </section>

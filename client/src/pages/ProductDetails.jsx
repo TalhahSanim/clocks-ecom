@@ -21,18 +21,36 @@ export default function ProductDetails() {
 
   if (error) return <p role="alert">{error}</p>;
   if (!product) return <p>Loading...</p>;
+
+  const inStock = product.stock > 0;
   return (
-  <article className={styles.details}>
-    <img src={product.image}  alt={product.name} className={styles.image} />
-    <div>
-      <h1>{product.name}</h1>
-      <p className={styles.category}>{product.category}</p>
-      <p className={styles.price}>${product.price.toFixed(2)}</p>
-      <p>{product.description}</p>
-      <p>{product.stock > 0 ? `${product.stock} in stock`:"Sold Out"}</p>
-      {user?.admin && <Link to={`/products/${id}/edit`}>Edit Clock</Link>}
-      <Link to="/catalogue">⬅️ Back To Catalogue</Link>
-    </div>
-  </article>
-  )
+    <article className={styles.panel}>
+      <Link to="/catalogue" className={styles.back}>
+        👈 Back To Catalogue
+      </Link>
+
+      <div className={styles.details}>
+        <img src={product.image} alt={product.name} className={styles.image} />
+
+        <div className={styles.info}>
+          <span className={styles.category}>{product.category}</span>
+          <h1 className={styles.name}>{product.name}</h1>
+          <p className={styles.price}>${product.price.toFixed(2)}</p>
+          <p className={styles.description}>{product.description}</p>
+          <p className={inStock ? styles.inStock : styles.soldOut}>
+            {inStock ? `${product.stock} In Stock ` : "Sold Out"}
+          </p>
+
+          {/* Buttons -> Add Cart and Save for later */}
+          <div className={styles.actions}>
+            {user?.admin && (
+              <Link to={`/products/${id}/edit`} className={styles.edit}>
+                Edit Clock
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+    </article>
+  );
 }
