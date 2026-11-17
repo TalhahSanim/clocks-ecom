@@ -1,6 +1,7 @@
 // Lets components display a short message -> const toast = useToast() toast("saved","success")
 import { createContext, useContext, useState, useCallback } from "react";
 import * as Toast from "@radix-ui/react-toast";
+import { TbX } from "react-icons/tb";
 import styles from "./Toast.module.css";
 
 const ToastContext = createContext(() => {});
@@ -27,7 +28,7 @@ export function ToastProvider({ children }) {
           >
             <Toast.Description>{toast.message}</Toast.Description>
             <Toast.Close className={styles.close} aria-label="Close">
-              ❌
+              <TbX aria-hidden="true" />
             </Toast.Close>
           </Toast.Root>
         ))}

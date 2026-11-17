@@ -8,7 +8,9 @@
 }
 
 .back {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
   margin-bottom: var(--space-4);
   color: var(--color-primary);
   font-size: var(--text-sm);

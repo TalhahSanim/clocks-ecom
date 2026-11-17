@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { getById } from "../api/products";
 import { errorMessage } from "../api/api";
 import { useAuth } from "../context/UseAuth";
+import { TbArrowNarrowLeft } from "react-icons/tb";
 import styles from "./ProductDetails.module.css";
 
 export default function ProductDetails() {
@@ -26,7 +27,7 @@ export default function ProductDetails() {
   return (
     <article className={styles.panel}>
       <Link to="/catalogue" className={styles.back}>
-        👈 Back To Catalogue
+        <TbArrowNarrowLeft aria-hidden="true" /> Back To Catalogue
       </Link>
 
       <div className={styles.details}>

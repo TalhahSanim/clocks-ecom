@@ -1,4 +1,4 @@
-# Vibe Check App (Parralel Clocks Store)
+# Parralel Clocks Store
 
 A React + Firebase store built for Week 9 of *Apply Different Language Skills*.
 Users can sign up, log in, browse the live product inventory (Firestore), and
@@ -38,6 +38,4 @@ src/
 └── main.jsx      # Entry point
 ```
 
-## Guides
 
-- [Moving the CSS into CSS Modules](CSS_MODULES_GUIDE.md)

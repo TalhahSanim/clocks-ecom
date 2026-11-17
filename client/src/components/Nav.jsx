@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./Nav.module.css";
 import { RiLoginBoxFill } from "react-icons/ri";
 import { MdSell } from "react-icons/md";
@@ -11,12 +11,10 @@ const linkClass = ({ isActive }) =>
   isActive ? styles.active : styles.inactive;
 
 function Nav({ cartCount }) {
-  const { pathname } = useLocation();
-  const overlayActive = pathname === "/products";
-  const overlayclass = overlayActive ? styles.overlay : " ";
+
   return (
     <>
-      <nav className={`${styles.nav} ${overlayclass} `}>
+      <nav className={styles.nav}>
         <NavLink to="/" end className={linkClass}>
           <TbHomeFilled size={30} />
           Home

@@ -1,52 +1,105 @@
-.list {
-  list-style: none;
+/* Store Admin -> three statistics cards then the table */
+.statistics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-3);
+  max-width: 720px;
+  margin-bottom: var(--space-4);
+}
+
+.statistic {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
 }
 
-.panel {
-  background-color: #439899;
-  padding: 5rem;
-  box-shadow: 0 2px 5px #443df5;
-  border-radius: 2rem;
+.statistic strong {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-heading);
 }
 
-.heading {
-  color: white;
-  font-size: 3.2rem;
-  font-weight: 700;
-  text-align: center;
+.statistic span {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+.statistic .low {
+  color: var(danger); /*? Low stock in red*/
+}
+
+/* The table scrolls sideways instead of being smashed together */
+.tableWrapper {
+  overflow-x: auto;
+  padding: var(--space-3);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th {
+  padding: var(--space-3);
+  text-align: left;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.table td {
+  padding: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  vertical-align: middle;
 }
 
 .item {
-  color: white;
-  font-size: 1.8rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: none;
+}
+.item:hover {
+  text-decoration: underline;
 }
 
-.buyButton,
-.deleteButton {
-  padding: 22px;
-  border: none;
-  border-radius: 5px;
-  margin: 20px 20px;
-  cursor: pointer;
+.thumbnail {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
 }
 
-.buyButton {
-  display: inline-block;
-  background-color: rgb(35, 155, 35);
+.category {
+  text-transform: capitalize;
+}
+.low {
+  color: var(--color-danger);
+  font-weight: 600;
 }
 
-.deleteButton {
-  background-color: rgb(241, 42, 42);
-  color: white;
-  font-weight: 700;
-  width: 75%;
-  margin: 20px 70px;
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
 }
-
-.deleteButton:hover {
-  background-color: rgb(243, 122, 122);
+.edit {
+  padding: var(--space-2) var(--space-4);
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  color: var(--color-heading);
+  font-weight: 600;
+  text-decoration: none;
+}
+.edit:hover {
+  background: var(--color-surface);
+}
+.error {
+  color: var(--color-danger);
 }

@@ -34,10 +34,16 @@
   border-left-color: var(--color-danger);
 }
 
-.color {
+.close {
+  display: flex; /* centers it*/
+  padding: var(--space-1);
   background: none;
   border: none;
+  border-radius: var(--radius-sm);
   color: inherit;
   font-size: 1.25rem;
   cursor: pointer;
+}
+.close:hover {
+  background: var(--color-border);
 }

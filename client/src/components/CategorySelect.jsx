@@ -1,5 +1,6 @@
 // Category Selector for the product form
 import * as Select from "@radix-ui/react-select";
+import { TbChevronDown, TbCheck } from "react-icons/tb";
 import styles from "./CategorySelect.module.css";
 
 export const CATEGORIES = ["wall", "mantel", "alarm", "floor", "desk", "watch", "hourglass"];
@@ -9,7 +10,9 @@ export default function CategorySelect({ value, onChange, id }) {
     <Select.Root value={value} onValueChange={onChange}>
       <Select.Trigger id={id} className={styles.trigger} aria-label="Category">
         <Select.Value placeholder="Select a Category" />
-        <Select.Icon className={styles.icon}>🔻</Select.Icon>
+        <Select.Icon className={styles.icon}>
+          <TbChevronDown aria-hidden="true" />
+        </Select.Icon>
       </Select.Trigger>
 
       <Select.Portal>
@@ -18,7 +21,9 @@ export default function CategorySelect({ value, onChange, id }) {
             {CATEGORIES.map((cat) => (
               <Select.Item key={cat} value={cat} className={styles.item}>
                 <Select.ItemText>{cat}</Select.ItemText>
-                <Select.ItemIndicator className={styles.check}>✔️</Select.ItemIndicator>
+                <Select.ItemIndicator className={styles.check}>
+                  <TbCheck aria-hidden="true" />
+                </Select.ItemIndicator>
               </Select.Item>
             ))}
           </Select.Viewport>
