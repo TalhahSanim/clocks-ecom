@@ -30,7 +30,7 @@ function validateOrder(req, res, next) {
   const { error } = schema.validate(req.body);
   if (!error) return next();
 
-  // path where bad field is as where problem is
+  // path where bad field is such as shipping, postcode and postcode or [items,0,quantity]
   const [group, field] = error.details[0].path;
   if (group === "items") return next(ApiError.badRequest("Your Cart Is Empty Or Contains Invalid Quantity"));
 

@@ -1,4 +1,4 @@
-// Any Component -> const {items.addToCart} =useCart()
+// Any Component -> const {items.addToCart} -> useCart()
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 

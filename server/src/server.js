@@ -18,7 +18,7 @@ const app = express();
 
 // Security Headers
 app.use(helmet());
-// React may call API
+// Only website within the cors whitelist can call api from the browser
 app.use(cors(corsOptions));
 // Reads JSON and form bodies into req.body
 app.use(express.json());

@@ -1,4 +1,3 @@
-/* index.css */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Instrument+Sans:wght@400;600&display=swap");
 
 :root {
@@ -47,7 +46,6 @@
   --duration-fast: 150ms;
   --duration-med: 300ms;
 
-  /* Old Names */
   --bg: var(--color-bg);
   --bg-light: var(--color-primary);
   --bg-dark: var(--color-surface);

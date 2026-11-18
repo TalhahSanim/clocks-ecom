@@ -243,7 +243,7 @@ function guessCategory(name) {
   return "wall";
 }
 
-// for...of with await -> add clocks one one at a time in order
+// for...of with await -> add clocks  one at a time in order
 for (const product of products) {
   const refererence = await db.collection("products").add({
     name: product.name,

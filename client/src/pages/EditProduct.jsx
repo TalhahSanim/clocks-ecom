@@ -1,4 +1,4 @@
-//  Admin -> Change Clock -> Image optional? and no new files keep old one
+//  Admin -> Change/edit Clock -> Image optional? and no new files keep old one
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getById, update } from "../api/products";
@@ -18,7 +18,7 @@ export default function EditProduct() {
   }, [id]);
 
   if (error) return <p role="alert">{error}</p>;
-  // Wait for clock then from is filled in
+  // Wait for clock then fill the from with it
   if (!product) return <p>Loading...</p>;
 
   return (

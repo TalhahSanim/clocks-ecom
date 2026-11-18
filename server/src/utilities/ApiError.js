@@ -29,7 +29,7 @@ class ApiError {
     return new ApiError(404, msg);
   }
 
-  //  413 -> file to big
+  //  413 -> file too big
   static tooLarge(msg) {
     return new ApiError(413, `Upload Failed: ${msg}`);
   }

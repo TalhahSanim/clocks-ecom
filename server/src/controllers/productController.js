@@ -1,7 +1,7 @@
 // Actions of product route
 import { db } from "../config/db.js";
 import ApiError from "../utilities/ApiError.js";
-// place image-uploads import
+// supabase upload and delete helpers
 import { storageBucketUpload, deleteFileFromBucket } from "../utilities/bucketServices.js";
 
 // Firestore document -> plain object with its id
@@ -12,7 +12,7 @@ export default {
   // path -> /api/products
   // request -> GET
   // type -> public
-  // description -> sends every clock sorted by name
+  // description -> clocks get filtered via category sorted by name,price,newest and limited by 50
 
   async getAllProducts(req, res, next) {
     // Only let known values so the URL cannot ask anything odd

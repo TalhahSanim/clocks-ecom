@@ -20,7 +20,7 @@ export default function ProductCard({ product, children }) {
         <h3 className={styles.name}>{product.name}</h3>
         <p className={styles.price}>{price(product.price)}</p>
       </Link>
-      {/* Buttons the under card such as Add to Cart, Edit and Delete  */}
+      {/* Buttons the under card such as Add to Cart, Edit and Delete  passed by the page */}
       {children && <div className={styles.actions}>{children}</div>}
     </li>
   );

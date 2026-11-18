@@ -7,7 +7,7 @@ import { useToast } from "../../context/ToastContext";
 import ConfirmDelete from "../ConfirmDelete";
 import styles from "./ProductList.module.css";
 
-// at this level or under the stock shows red in low
+// Stock at or under is shows red to show it has low stock
 const low_Stock = 5;
 export default function ProductList() {
   const [products, setProducts] = useState([]);
@@ -34,7 +34,7 @@ export default function ProductList() {
     }
   }
 
-  // Three numbers at the top found from list
+  // Three  statistic cards workout via the list
   const lowCount = products.filter((product) => product.stock <= low_Stock).length;
   const categoryNumber = new Set(products.map((product) => product.category)).size;
   return (

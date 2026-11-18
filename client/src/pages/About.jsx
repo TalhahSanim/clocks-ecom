@@ -20,7 +20,7 @@ export default function About() {
             Every clock in the range is listed with real photos, its price and how many are in stock, so you know what
             you are getting before you check out.
           </p>
-          {/* The list of there bullets */}
+          {/* the three featured bullets */}
           <ul className={styles.bullets}>
             <li>
               <TbCheck aria-hidden="true" /> Browse by category and sort by price or newest

@@ -8,7 +8,7 @@ export default function CategoryFilter({ value, onChange }) {
     <ToggleGroup.Root
       type="single"
       value={value}
-      // Clicking the pill that already selected sends "" . we ignore it so one tag is active
+      // clicking active tag sends "": ignore it so one tag remains selected
       onValueChange={(val) => val && onChange(val)}
       className={styles.group}
       aria-label="Category"

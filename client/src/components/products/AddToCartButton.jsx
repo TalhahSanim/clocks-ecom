@@ -4,7 +4,7 @@ import styles from "./AddToCart.module.css";
 
 export default function AddToCartButton({ product }) {
   const { items, addToCart, decreaseQuantity, removeFromCart } = useCart();
-  // Added in on each Render
+  // worked out by the cart on each render to ensure it has latest update
   const inCart = items.find((item) => item.id === product.id);
 
   if (product.stock === 0) {
@@ -23,7 +23,7 @@ export default function AddToCartButton({ product }) {
     );
   }
 
-  // at 1 the subtract button removes from the
+  // at quantity 1 "-" removes the clock from the cart
   const handleSubtraction = () => (inCart.quantity === 1 ? removeFromCart(product.id) : decreaseQuantity(product.id));
   return (
     <div className={styles.stepper} role="group" aria-label={`Quantity of ${product.name}`}>

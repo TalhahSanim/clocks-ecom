@@ -3,7 +3,6 @@ import { useAuth } from "../../context/useAuth";
 import styles from "./ProtectedRoute.module.css";
 
 function ProtectedRoute({ children }) {
-  // const { isLoggedIn } = useAuth();
   const { isLoggedIn, isLoading } = useAuth();
 
   if (isLoading) {

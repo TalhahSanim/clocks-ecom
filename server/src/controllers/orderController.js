@@ -12,7 +12,7 @@ const toOrder = (doc) => ({
   createdAt: doc.data().createdAt?.toDate() ?? doc.data().createdAt,
 });
 
-// Is Admin then use same checks as requireAdmin
+// Admins can see any order as it uses requireAdmin check
 async function isAdmin(uid) {
   const snap = await db.collection("users").doc(uid).get();
   return snap.exists && snap.data().admin === true;
@@ -66,7 +66,7 @@ export default {
       });
       res.status(201).send(order);
     } catch (err) {
-      // not enough message goes to the user
+      // Our own errors such as only 3 remaining which goes to user and anything different is a 500
       if (err instanceof ApiError) return next(err);
       next(ApiError.internal("Your Order Could Not Be Placed", err));
     }

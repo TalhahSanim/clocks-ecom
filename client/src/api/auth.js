@@ -4,8 +4,6 @@ import { doc, getDoc, getDocs, setDoc } from "firebase/firestore";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 
-// const usersRef = collection(db, "users");
-// const SALT_ROUNDS = 10;
 
 async function getAdminFlag(uid) {
   const snapshot = await getDoc(doc(db, "users", uid));

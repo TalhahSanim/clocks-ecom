@@ -1,4 +1,4 @@
-// Save For Later  -> ✔️ Saved -> Logged out users go to login page
+//  toggle: Save For Later  -> ✔️ Saved -> and Logged out users go to login page
 import * as Toggle from "@radix-ui/react-toggle";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/useAuth";

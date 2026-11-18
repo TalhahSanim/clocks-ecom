@@ -13,7 +13,7 @@ export default function fileServerUpload(req, res, next) {
   const safeName = path.basename(file.name).replace(/[^a-zA-Z0-9._-]/g, "-");
   const filename = `${Date.now()}_${safeName}`;
 
-  // process.cwd is the sever folder
+  // process.cwd is the server folder
   const uploadPath = path.join(process.cwd(), "public", "uploads", filename);
 
   file

@@ -4,7 +4,7 @@ import styles from "./Footer.module.css";
 
 import logo from "../../assets/logo.svg";
 
-//  label and path fro each column and each path is page in the site
+//  label and path for each column and every path is page from the app
 const columns = [
   {
     title: "Store",

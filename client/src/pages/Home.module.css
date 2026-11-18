@@ -68,7 +68,7 @@
   background: var(--color-surface);
 }
 
-/* Image sites in white round frame */
+/* Image sits in white frame */
 .heroFrame {
   padding: var(--space-4);
   background: var(--color-card);

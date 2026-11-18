@@ -1,4 +1,4 @@
-// Saved for late -> a logged in users saved clocks products (users/{uid}/saved)
+// Saved for later -> a logged in users saved clocks products (users/{uid}/saved)
 import { db } from "../config/db.js";
 import ApiError from "../utilities/ApiError.js";
 
@@ -21,7 +21,7 @@ export default {
   },
 
   // name -> save a clock
-  // path -> /api/saved:clockId
+  // path -> /api/saved/:clockId
   // request -> PUT
   // type -> logged in
   // description -> copies clocks name , price and image into users/{uid}/saved/{id}

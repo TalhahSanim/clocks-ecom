@@ -1,4 +1,4 @@
-/* Cart _> items on left and summary on right */
+/* Cart -> items on left and summary on right */
 .page {
   max-width: 1200px;
   margin: 0 auto;
@@ -135,7 +135,7 @@
   gap: var(--space-3);
 }
 
-/* Checkout form reuses car and overview layout */
+/* Checkout form reuses cart and overview layout */
 .checkoutForm {
   display: flex;
   flex-direction: column;

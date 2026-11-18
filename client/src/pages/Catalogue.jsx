@@ -17,10 +17,10 @@ export default function Catalogue() {
   const [category, setCategory] = useState("all");
   const [sort, setSort] = useState("name");
 
-  // ?qs = os navigation search box and empty would show all
+  // ?qs = from nav empty search shows each clock
   const [params] = useSearchParams();
   const search = params.get("q") || "";
-  // Only clocks which name contains the search is worked out on render
+  // clocks whose name is contained in the search worked out on each render
   const shown = products.filter((product) => product.name.toLowerCase().includes(search.toLowerCase()));
 
   // Load again when category/sort changes

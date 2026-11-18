@@ -7,7 +7,7 @@ export default {
     // path to private key on json in the server folder
     serviceAccountKey: process.env.GOOGLE_APPLICATION_CREDENTIALS,
   },
-  // Supabase storage for kit images
+  // Supabase storage for clock images
   supabase: {
     url: process.env.SUPABASE_URL,
     serviceKey: process.env.SUPABASE_SERVICE_KEY,

@@ -22,7 +22,7 @@ export function CartProvider({ children }) {
     localStorage.setItem(storageKey, JSON.stringify(items));
   }, [items]);
 
-  // Already  in cart? Add one and if new add it with the quantity
+  // Already  in cart? Add one and if new add it with the quantity wanted
   function addToCart(product) {
     setItems((prev) => {
       const found = prev.find((item) => item.id === product.id);

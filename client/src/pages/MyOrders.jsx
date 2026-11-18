@@ -1,4 +1,4 @@
-// My Order newest first with its status
+// My Orders: newest first with its status
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getMyOrders } from "../api/orders";

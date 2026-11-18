@@ -11,7 +11,7 @@
   cursor: pointer;
 }
 
-/* Radix sets data-set on while dark mode active */
+/* Radix sets data-set to on while dark mode active */
 .toggle[data-state="on"] {
   background: var(--color-heading);
   color: var(--color-bg);

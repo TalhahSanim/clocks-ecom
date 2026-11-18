@@ -3,7 +3,7 @@ import fs from "fs/promises";
 import path from "path";
 import { supabase, BUCKET } from "../config/supabase.js";
 
-// The image types file policy allows so subases give right type
+// content types the  for the extensions the file policy allows and this ensures supabase servers each image correctly
 const CONTENT_TYPES = { ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp" };
 
 // Upload one file from public/uploads to the bucket and returns with public URL
@@ -13,7 +13,7 @@ export async function storageBucketUpload(filename) {
 
   const { error } = await supabase.storage.from(BUCKET).upload(filename, fileData, {
     contentType: CONTENT_TYPES[path.extname(filename).toLowerCase()],
-    upsert: false, // the time in make upload unique
+    upsert: false, // never overwrite as timestamp in file in the filename keeps each upload unique
   });
   if (error) throw error;
 

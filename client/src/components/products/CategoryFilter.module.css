@@ -19,7 +19,7 @@
   filter: brightness(0.96);
 }
 
-/* Radix sets data-state "on " the selected tag  */
+/* Radix sets data-state to  "on " the selected tag  */
 .tags[data-state="on"] {
   background: var(--color-primary);
   color: var(--color-on-primary);
