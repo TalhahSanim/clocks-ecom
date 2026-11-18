@@ -7,6 +7,7 @@ import AdminRoute from "./components/routes/AdminRoute";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 import Catalogue from "./pages/Catalogue";
 import ProductDetails from "./pages/ProductDetails";
 import ProductsPage from "./pages/ProductsPage";
@@ -106,7 +107,7 @@ export default function App() {
               }
             />
 
-            <Route path="*" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </SavedProvider>

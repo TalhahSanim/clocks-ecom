@@ -1,5 +1,6 @@
 //  The store -> every clock from the API
 import { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { getAll } from "../api/products";
 import { errorMessage } from "../api/api";
 import ProductCard from "../components/products/ProductCard";
@@ -15,6 +16,12 @@ export default function Catalogue() {
   const [error, setError] = useState("");
   const [category, setCategory] = useState("all");
   const [sort, setSort] = useState("name");
+
+  // ?qs = os navigation search box and empty would show all
+  const [params] = useSearchParams();
+  const search = params.get("q") || "";
+  // Only clocks which name contains the search is worked out on render
+  const shown = products.filter((product) => product.name.toLowerCase().includes(search.toLowerCase()));
 
   // Load again when category/sort changes
   useEffect(() => {
@@ -41,11 +48,15 @@ export default function Catalogue() {
         </p>
       )}
       {!loading && !error && products.length === 0 && <p className={styles.status}>No {category} Clocks Yet.</p>}
-
+      {!loading && !error && products.length > 0 && shown.length === 0 && (
+        <p className={styles.status}>
+          No Clocks Match "{search}". <Link to="/catalogue">Show All Clocks</Link>
+        </p>
+      )}
       <ul className={styles.productList}>
-        {products.map((product, index) => (
+        {shown.map((product, index) => (
           <ProductCard key={product.id} product={product} index={index}>
-            <SaveButton clock={product}/>
+            <SaveButton clock={product} />
             <AddToCartButton product={product} />
           </ProductCard>
         ))}

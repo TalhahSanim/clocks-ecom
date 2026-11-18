@@ -1,0 +1,22 @@
+/* ThemeToggle */
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 999px;
+  background: var(--color-pill);
+  color: var(--color-heading);
+  cursor: pointer;
+}
+
+/* Radix sets data-set on while dark mode active */
+.toggle[data-state="on"] {
+  background: var(--color-heading);
+  color: var(--color-bg);
+}
+.toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

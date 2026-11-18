@@ -5,6 +5,7 @@ import { TbSearch, TbShoppingCart, TbUser } from "react-icons/tb";
 import { useAuth } from "../../context/useAuth";
 import { useCart } from "../../context/useCart";
 import AccountMenu from "./AccountMenu";
+import ThemeToggle from "./ThemeToggle";
 import styles from "./Nav.module.css";
 
 import logo from "../../assets/logo.svg";
@@ -70,6 +71,7 @@ export default function Nav() {
             <TbUser size={22} aria-hidden="true" /> Login
           </Link>
         )}
+        <ThemeToggle />
       </div>
     </header>
   );

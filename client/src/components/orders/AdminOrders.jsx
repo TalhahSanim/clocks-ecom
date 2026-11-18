@@ -4,6 +4,7 @@ import { getAllOrders, updateOrderStatus } from "../../api/orders";
 import { errorMessage } from "../../api/api";
 import { formatPrice } from "../../utilities/formatPrice";
 import styles from "../../pages/MyOrders.module.css";
+import StatusSelect from "./StatusSelect";
 
 const statuses = ["Placed", "Shipped", "Delivered"];
 
@@ -47,18 +48,11 @@ export default function AdminOrders() {
                 <td>{order.shipping.name}</td>
                 <td>{formatPrice(order.total)}</td>
                 <td>
-                  <select
+                  <StatusSelect
                     value={order.status}
-                    onChange={(e) => changeStatus(order.id, e.target.value)}
-                    className={`${styles.statusSelect}
-                    ${styles[order.status.toLowerCase()]}
-                    `}
-                    aria-label={`Status Of Order ${order.orderNumber}`}
-                  >
-                    {statuses.map((s) => (
-                      <option key={s}>{s}</option>
-                    ))}
-                  </select>
+                    onChange={(status) => changeStatus(order.id, status)}
+                    label={`Status Of Order ${order.orderNumber}`}
+                  />
                 </td>
               </tr>
             ))}

@@ -1,0 +1,37 @@
+/* Not Found -> center message with redirect */
+.page {
+  max-width: 560px;
+  margin: var(--space-6) auto;
+  padding: 0 var(--space-3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.icon {
+  font-size: 4rem;
+  color: var(--color-primary);
+}
+.page h1 {
+  margin: 0;
+  color: var(--color-heading);
+}
+.muted {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+.primary {
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back {
+  color: var(--color-primary);
+  text-decoration: none;
+}

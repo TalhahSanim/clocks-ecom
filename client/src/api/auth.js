@@ -1,6 +1,5 @@
 import { db } from "../firebase";
 import { doc, getDoc, getDocs, setDoc } from "firebase/firestore";
-// import bcrypt from "bcryptjs";
 
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";

@@ -81,3 +81,16 @@ img {
 a {
   color: var(--color-primary);
 }
+
+/* Dark Mode */
+:root[data-theme="dark"] {
+  --color-bg: #0a1f1e;
+  --color-surface: #10203a;
+  --color-surface-2: #164237;
+  --color-header: #0f3a30;
+  --color-pill: #164237;
+  --color-heading: #b2e5df;
+  --color-text: #f0fdfa;
+  --color-text-muted: #9cc9b8;
+  --color-border: rgb(178 229 205 /0.2);
+}
