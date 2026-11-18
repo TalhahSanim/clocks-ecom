@@ -4,7 +4,7 @@ import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
 
 //  "/api" goes to vite's proxy to http://localhost:3000/api
-const api = axios.create({ baseURL: "/api", timeout: 10000 });
+const api = axios.create({ baseURL: import.meta.env.VITE_API_URL || "/api", timeout: 10000 });
 // Server says the login is expired -> sign out so user logs in again
 api.interceptors.response.use(
   (response) => response,
@@ -13,7 +13,7 @@ api.interceptors.response.use(
       await signOut(auth);
     }
     return Promise.reject(error);
-  },
+  }
 );
 // Adds firebase Id token to each request so the server can determine user identity
 // getIdToken() refreshes it if its close to one hour expiry
