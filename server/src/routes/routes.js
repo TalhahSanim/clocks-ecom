@@ -3,6 +3,7 @@ import express from "express";
 import authRoutes from "./authRoutes.js";
 import productRoutes from "./productRoutes.js";
 import savedRoutes from "./savedRoutes.js";
+import orderRoutes from "./orderRoutes.js";
 
 const router = express.Router();
 
@@ -14,6 +15,7 @@ export default () => {
   router.use("/auth", authRoutes());
   router.use("/products", productRoutes());
   router.use("/saved", savedRoutes());
+  router.use("/orders", orderRoutes());
 
   return router;
 };
