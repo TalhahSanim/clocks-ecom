@@ -9,6 +9,8 @@ const corsOptions = {
     if (whiteList.includes(origin) || !origin) callback(null, true);
     // Anyone different block them
     else callback(new Error("Not Allowed By Cors"));
+
+    console.log(origin, whiteList);
   },
   // Older browsers fail on 204 for a CORS check
   optionsSuccessStatus: 200,
