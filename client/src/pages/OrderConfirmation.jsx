@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { TbCircleCheck } from "react-icons/tb";
 import { getOrder } from "../api/orders";
 import { errorMessage } from "../api/api";
 import { formatPrice } from "../utilities/formatPrice";
@@ -28,7 +29,7 @@ export default function OrderConfirmation() {
   return (
     <section className={styles.empty}>
       <div className={styles.check} aria-hidden="true">
-        ✔️
+        <TbCircleCheck />
       </div>
       <h1>Order Placed</h1>
       <p>

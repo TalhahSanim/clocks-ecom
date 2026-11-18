@@ -23,7 +23,7 @@
   padding: var(--space-1);
   border: 2px solid var(--color-surface-2);
   border-radius: var(--radius-sm);
-  background: #fff;
+  background: var(--color-card);
 }
 
 .step {

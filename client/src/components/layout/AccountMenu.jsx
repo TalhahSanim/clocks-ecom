@@ -1,6 +1,7 @@
 // Account Menu in the Nav -> who is logged in , admin Link and logout
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { useNavigate } from "react-router-dom";
+import { TbChevronDown, TbUser } from "react-icons/tb";
 import { useAuth } from "../../context/useAuth";
 import styles from "./AccountMenu.module.css";
 
@@ -9,7 +10,11 @@ export default function AccountMenu() {
   const navigate = useNavigate();
   return (
     <DropdownMenu.Root>
-      <DropdownMenu.Trigger className={styles.trigger}>{user.name || user.email} 🔻</DropdownMenu.Trigger>
+      <DropdownMenu.Trigger className={styles.trigger}>
+        {` ${user.name || user.email}`}
+        <TbUser size={22} />
+        <TbChevronDown aria-hidden="true" />
+      </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content className={styles.content} align="end" sideOffset={6}>
@@ -17,7 +22,7 @@ export default function AccountMenu() {
           <DropdownMenu.Separator className={styles.separator} />
 
           <DropdownMenu.Item className={styles.item} onSelect={() => navigate("/catalogue")}>
-            Store
+            Catalogue
           </DropdownMenu.Item>
           <DropdownMenu.Item className={styles.item} onSelect={() => navigate("/saved")}>
             Saved For Later

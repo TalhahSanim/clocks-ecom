@@ -58,7 +58,7 @@
   color: var(--color-on-primary);
 }
 .secondary {
-  background: #fff;
+  background: var(--color-card);
   color: var(--color-heading);
 }
 .primary:hover {
@@ -71,7 +71,7 @@
 /* Image sites in white round frame */
 .heroFrame {
   padding: var(--space-4);
-  background: #fff;
+  background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
 }

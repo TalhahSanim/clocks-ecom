@@ -1,6 +1,7 @@
 // The Cart one row per clock and the order overview
 import { Link } from "react-router-dom";
 import { useCart } from "../context/useCart";
+import { TbArrowLeft } from "react-icons/tb";
 import AddToCartButton from "../components/products/AddToCartButton";
 import { formatPrice } from "../utilities/formatPrice";
 import styles from "./Cart.module.css";
@@ -67,7 +68,7 @@ export default function Cart() {
             Checkout
           </Link>
           <Link to="/catalogue" className={styles.back}>
-            🔙 Continue Browsing
+            <TbArrowLeft aria-hidden="true" /> Continue Browsing
           </Link>
         </aside>
       </div>
