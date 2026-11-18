@@ -1,54 +1,76 @@
-import { Link, NavLink } from "react-router-dom";
-import { TbShoppingCart } from "react-icons/tb";
+// Site header -> logo Links,search and cart and account
+import { useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { TbSearch, TbShoppingCart, TbUser } from "react-icons/tb";
+import { useAuth } from "../../context/useAuth";
 import { useCart } from "../../context/useCart";
+import AccountMenu from "./AccountMenu";
 import styles from "./Nav.module.css";
-import { RiLoginBoxFill } from "react-icons/ri";
-import { MdSell } from "react-icons/md";
-import { IoStorefrontOutline } from "react-icons/io5";
-import { FcAbout } from "react-icons/fc";
-import { TbHomeFilled } from "react-icons/tb";
-import { MdAccountBox } from "react-icons/md";
 
-const linkClass = ({ isActive }) => (isActive ? styles.active : styles.inactive);
+import logo from "../../assets/logo.svg";
 
-function Nav() {
+// current page link turns to light pill
+const linkClass = ({ isActive }) => (isActive ? `${styles.link} ${styles.active}` : styles.link);
+
+export default function Nav() {
+  const { user } = useAuth();
   const { count } = useCart();
+  const navigate = useNavigate();
+  const [search, setSearch] = useState("");
 
+  // Search sends user to catalogue with ?q=  and this filters via name
+  function handleSearch(e) {
+    e.preventDefault();
+    navigate(`/catalogue?q=${encodeURIComponent(search.trim())}`);
+  }
   return (
-    <>
-      <nav className={styles.nav}>
+    <header className={styles.header}>
+      <Link to="/" className={styles.brand}>
+        <img src={logo} alt="" className={styles.logo} /> Parallel Clocks
+      </Link>
+
+      <nav className={styles.links} aria-label="main">
         <NavLink to="/" end className={linkClass}>
-          <TbHomeFilled size={30} />
           Home
         </NavLink>
-        <NavLink to="/about" className={linkClass}>
-          <FcAbout />
-          About
-        </NavLink>
-
         <NavLink to="/catalogue" className={linkClass}>
-          <IoStorefrontOutline size={30} />
           Catalogue
         </NavLink>
+        <NavLink to="/about" className={linkClass}>
+          About
+        </NavLink>
+        {user?.admin && (
+          <NavLink to="/inventory" className={linkClass}>
+            Inventory
+          </NavLink>
+        )}
+      </nav>
 
-        <NavLink to="/products" className={linkClass}>
-          <MdSell size={30} />
-          Products
-        </NavLink>
-        <NavLink to="/signup" className={linkClass}>
-          <MdAccountBox size={30} />
-          Signup
-        </NavLink>
-        <NavLink to="/login" className={linkClass}>
-          <RiLoginBoxFill className={styles.loginIcon} size="1rem" />
-          Login
-        </NavLink>
+      <div className={styles.tool}>
+        <form role="search" className={styles.search} onSubmit={handleSearch}>
+          <TbSearch aria-hidden="true" />
+          <input
+            type="search"
+            placeholder="Search Clocks"
+            aria-label="Search Clocks"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </form>
+
         <Link to="/cart" className={styles.cart} aria-label={`Cart, ${count} items`}>
-          <TbShoppingCart size={30} />
+          <TbShoppingCart size={28} />
           {count > 0 && <span className={styles.badge}>{count}</span>}
         </Link>
-      </nav>
-    </>
+
+        {user ? (
+          <AccountMenu />
+        ) : (
+          <Link to="/login" className={styles.login}>
+            <TbUser size={22} aria-hidden="true" /> Login
+          </Link>
+        )}
+      </div>
+    </header>
   );
 }
-export default Nav;

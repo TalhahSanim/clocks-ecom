@@ -18,7 +18,7 @@ function LoginPage() {
     try {
       const user = await loginUser(email, password);
       login(user);
-      navigate("/products");
+      navigate(user.admin ? "/inventory" : "/catalogue");
     } catch (error) {
       setErrorMessage(error.message);
     }

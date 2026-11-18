@@ -88,7 +88,7 @@ export default function ProductList() {
                 </td>
                 <td>
                   <div className={styles.actions}>
-                    <Link to={`/products/${product.id}/edit`} className={styles.edit}>
+                    <Link to={`/inventory/${product.id}/edit`} className={styles.edit}>
                       Edit
                     </Link>
                     <ConfirmDelete name={product.name} onConfirm={() => handleDelete(product)} />

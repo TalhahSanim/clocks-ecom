@@ -82,7 +82,7 @@ export default function App() {
 
             {/* Store Admin  */}
             <Route
-              path="/products"
+              path="/inventory"
               element={
                 <AdminRoute>
                   <ProductsPage />
@@ -90,7 +90,7 @@ export default function App() {
               }
             />
             <Route
-              path="/products/add"
+              path="/inventory/add"
               element={
                 <AdminRoute>
                   <AddProduct />
@@ -98,7 +98,7 @@ export default function App() {
               }
             />
             <Route
-              path="/products/:id/edit"
+              path="/inventory/:id/edit"
               element={
                 <AdminRoute>
                   <EditProduct />

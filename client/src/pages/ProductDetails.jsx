@@ -49,7 +49,7 @@ export default function ProductDetails() {
             <AddToCartButton product={product} />
             <SaveButton clock={product} />
             {user?.admin && (
-              <Link to={`/products/${id}/edit`} className={styles.edit}>
+              <Link to={`/inventory/${id}/edit`} className={styles.edit}>
                 Edit Clock
               </Link>
             )}

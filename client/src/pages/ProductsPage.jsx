@@ -16,7 +16,7 @@ function ProductsPage() {
           <h1 className={styles.heading}>Store Admin</h1>
           <p className={styles.subtitle}>Admins only. Add, edit and delete clocks.</p>
         </div>
-        <Link to="/products/add" className={styles.addButton}>
+        <Link to="/inventory/add" className={styles.addButton}>
           <TbPlus aria-hidden="true" /> Add Clock
         </Link>
       </div>

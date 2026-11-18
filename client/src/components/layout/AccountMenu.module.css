@@ -1,0 +1,49 @@
+/* AccountMenu-> logged in users menu */
+.trigger {
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.content {
+  min-width: 200px;
+  padding: var(--space-1);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  z-index: 60;
+}
+
+.label {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+.separator {
+  height: var(--space-1) 0;
+  background: var(--color-border);
+}
+
+.item {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  outline: none;
+}
+
+.item[data-highlighted] {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+.danger {
+  color: var(--color-danger);
+}
+.danger[data-highlighted] {
+  background: var(--color-danger);
+  color: white;
+}
