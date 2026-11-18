@@ -167,3 +167,17 @@ button.primary:disabled {
   opacity: 0.6;
   cursor: progress;
 }
+
+.check{
+  width: 96px;
+  height: 96px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color:  #fff;
+  font-size: 3rem;
+  font-weight: 700;
+}
+.actions{display: flex;gap: var(--space-3);justify-content: center;align-items: center;}

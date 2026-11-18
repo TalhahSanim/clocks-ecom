@@ -28,7 +28,7 @@ export default function SortSelect({ value, onChange }) {
         <Select.Content className={shared.content} position="popper" sideOffset={4} align="end">
           <Select.Viewport>
             {SORTS.map((s) => (
-              <Select.Item key={s} value={s.value} className={shared.item}>
+              <Select.Item key={s.value} value={s.value} className={shared.item}>
                 <Select.ItemText>{s.label}</Select.ItemText>
                 <Select.ItemIndicator className={shared.check}>
                   <TbCheck aria-hidden="true" />

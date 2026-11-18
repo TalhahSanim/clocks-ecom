@@ -6,7 +6,7 @@ import { useCart } from "../context/useCart";
 import { createOrder } from "../api/orders";
 import { formatPrice } from "../utilities/formatPrice";
 import form from "../styles/Form.module.css";
-import styles from ".Cart.module.css";
+import styles from "./Cart.module.css";
 
 export default function Checkout() {
   const { user } = useAuth();

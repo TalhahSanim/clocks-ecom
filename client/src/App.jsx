@@ -16,6 +16,9 @@ import SignUp from "./pages/Signup";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import SavedPage from "./pages/SavedPage";
+import Checkout from "./pages/Checkout";
+import OrderConfirmation from "./pages/OrderConfirmation";
+import MyOrders from "./pages/MyOrders";
 import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
 import { SavedProvider } from "./context/SavedContext";
@@ -49,6 +52,30 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <SavedPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/checkout"
+              element={
+                <ProtectedRoute>
+                  <Checkout />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/orders"
+              element={
+                <ProtectedRoute>
+                  <MyOrders />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/orders/:id"
+              element={
+                <ProtectedRoute>
+                  <OrderConfirmation />
                 </ProtectedRoute>
               }
             />

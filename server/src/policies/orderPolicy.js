@@ -58,7 +58,7 @@ function validateStatus(req, res, next) {
       .required(),
   }).validate(req.body);
   if (error) return next(ApiError.badRequest(`Status Must Be One Of: ${statuses.join(", ")}`));
-  next()
+  next();
 }
 
 export default { validateOrder, validateStatus };
