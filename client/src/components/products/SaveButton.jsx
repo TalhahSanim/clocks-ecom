@@ -22,7 +22,7 @@ export default function SaveButton({ clock }) {
   return (
     // Clicked is it saved and radix use onPressedChange per click
     <Toggle.Root className={styles.save} pressed={saved} onPressedChange={handleClick}>
-      {saved ? "✔️ Saved" : "Save For Later"}
+      {saved ? "✔️ Saved" : "Save "}
     </Toggle.Root>
   );
 }

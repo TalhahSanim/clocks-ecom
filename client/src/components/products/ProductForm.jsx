@@ -102,7 +102,13 @@ export default function ProductForm({ initial = EMPTY, submitLabel, onSubmit, re
       {/*  Image Upload*/}
       <label className={form.field}>
         Image (PNG, JPG ir Webp Up To 5MB)
-        <input type="file" accept=".png,.jpg,.jpeg,.webp" onChange={handleFile} required={requireImage && !file} />
+        <input
+          type="file"
+          className={form.file}
+          accept=".png,.jpg,.jpeg,.webp"
+          onChange={handleFile}
+          required={requireImage && !file}
+        />
       </label>
       {preview && <img src={preview} alt="" width={160} />}
 

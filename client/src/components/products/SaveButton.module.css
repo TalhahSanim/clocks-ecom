@@ -1,6 +1,10 @@
 /* Save Button -> Radix Toggle */
 .save {
   flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
   padding: var(--space-2) var(--space-3);
   border: none;
   border-radius: var(--radius-sm);
@@ -8,7 +12,12 @@
   color: var(--color-heading);
   font: inherit;
   font-weight: 500;
+  white-space: nowrap;
   cursor: pointer;
+}
+
+.save:hover {
+  background: var(--color-pill);
 }
 
 /* Radix puts data-state on and aria-pressed true when the clock is saved */
