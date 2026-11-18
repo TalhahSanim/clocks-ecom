@@ -130,3 +130,40 @@
   flex-direction: column;
   gap: var(--space-3);
 }
+
+/* Checkout form reuses car and overview layout */
+.checkoutForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background: #fff;
+  border-radius: var(--radius-md);
+}
+
+.checkoutForm h2 {
+  margin: var(--space-2) 0 0;
+  font-size: 1.25rem;
+}
+.twoColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+.note {
+  margin: 0;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+}
+
+button.primary {
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+button.primary:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
